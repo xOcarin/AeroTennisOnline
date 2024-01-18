@@ -19,7 +19,7 @@ public class PlayerMove : NetworkBehaviour
             playerCount++;
         }
 
-        if (playerCount == 2)
+        if (playerCount == 0)
         {
             transform.position = new Vector3(2f, 0f, -3f);
         }
