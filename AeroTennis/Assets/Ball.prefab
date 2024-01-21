@@ -205,3 +205,5 @@ MonoBehaviour:
   syncInterval: 0
   speed: 5
   direction: {x: 0, y: 0, z: 1}
+  yourPrefab: {fileID: 932647739194895282}
+  spawnPosition: {x: 0, y: 0.25, z: 0}

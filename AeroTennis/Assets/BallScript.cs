@@ -18,6 +18,7 @@ public class BallScript : NetworkBehaviour
     }
 
     
+    
     private void OnTriggerEnter(Collider other)
     {
         

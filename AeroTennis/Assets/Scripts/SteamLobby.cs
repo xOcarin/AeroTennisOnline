@@ -44,12 +44,6 @@ public class SteamLobby : MonoBehaviour
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
     }
 
-    
-    [Command]
-    public void SpawnBall()
-    {
-        GameObject spawnedObject = Instantiate(yourPrefab, spawnPosition, Quaternion.identity);
-    }
 
 
     private void OnLobbyCreated(LobbyCreated_t callback)

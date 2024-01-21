@@ -10,6 +10,11 @@ public class PlayerMove : NetworkBehaviour
 
     // Counter to track the number of connected players
     private static int playerCount = 0;
+    
+    
+
+    public GameObject yourPrefab;
+    public Vector3 spawnPosition = new Vector3(0f, .25f, 0f);
 
     void Start()
     {
@@ -27,9 +32,32 @@ public class PlayerMove : NetworkBehaviour
         
     }
 
+
+    [Command]
+    public void CmdSpawnBall()
+    {
+        // Check if the client has authority
+        if (!isOwned)
+        {
+            // Do not proceed without authority
+            Debug.Log("ERROR NO AUTHORITY");
+            return;
+        }
+        else
+        {
+            Debug.Log("Ball Spawned");
+        }
+
+        // Instantiate and spawn the ball on the server
+        GameObject spawnedObject = Instantiate(yourPrefab, spawnPosition, Quaternion.identity);
+        NetworkServer.Spawn(spawnedObject);
+    }
+    
+    
+    
     void FixedUpdate()
     {
-        Debug.Log(playerCount);
+        //Debug.Log(playerCount);
         if (isLocalPlayer)
         {
             // Control the local player's racket
