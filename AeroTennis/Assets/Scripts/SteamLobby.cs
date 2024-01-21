@@ -30,8 +30,6 @@ public class SteamLobby : MonoBehaviour
 
         manager = GetComponent<networkManager>();
 
-        HostLobby();
-
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(onJoinRequest);
         LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
