@@ -434,6 +434,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 699781389}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
+      propertyPath: yourPrefab
+      value: 
+      objectReference: {fileID: 932647739194895282, guid: 9a5ce4f04d458894d9d795fcfba74e69, type: 3}
+    - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: StartButton
       value: 
       objectReference: {fileID: 1079888866}
@@ -702,6 +706,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1016337550807311172, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 710
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016337550807311172, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853211306526889303, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -315
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853211306526889303, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 201
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416042702941638028, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 710
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416042702941638028, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -23.886
+      objectReference: {fileID: 0}
     - target: {fileID: 6843689191331168216, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
       propertyPath: m_Interactable
       value: 1
@@ -723,6 +751,18 @@ PrefabInstance:
       value: HostLobby
       objectReference: {fileID: 0}
     - target: {fileID: 6843689191331168216, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SteamLobby, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184805996783119035, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1026975483}
+    - target: {fileID: 8184805996783119035, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184805996783119035, guid: ddbf7e653a5e3174f95f59ae2b42eae7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SteamLobby, Assembly-CSharp
       objectReference: {fileID: 0}

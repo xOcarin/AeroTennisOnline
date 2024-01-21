@@ -23,6 +23,10 @@ public class SteamLobby : MonoBehaviour
     public Text LobbyNameText;
     
     public GameObject StartButton;
+    
+    //ball stuff
+    public GameObject yourPrefab; 
+    public Vector3 spawnPosition = new Vector3(0f, .25f, 0f); 
 
     private void Start()
     {
@@ -38,6 +42,11 @@ public class SteamLobby : MonoBehaviour
     public void HostLobby()
     {
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
+    }
+    
+    public void SpawnBall()
+    {
+        GameObject spawnedObject = Instantiate(yourPrefab, spawnPosition, Quaternion.identity);
     }
 
 
