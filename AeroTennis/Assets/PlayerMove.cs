@@ -13,6 +13,7 @@ public class PlayerMove : NetworkBehaviour
 
     void Start()
     {
+        /*
         if (isServer)
         {
             // Increment the player count when a new player connects to the server
@@ -23,6 +24,7 @@ public class PlayerMove : NetworkBehaviour
         {
             transform.position = new Vector3(2f, 0f, -3f);
         }
+        */
     }
 
     void FixedUpdate()
