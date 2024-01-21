@@ -12,7 +12,7 @@ public class BallScript : NetworkBehaviour
     
   
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(direction * speed * Time.deltaTime);
     }
