@@ -10,25 +10,18 @@ public class PlayerMove : NetworkBehaviour
 
     // Counter to track the number of connected players
     private static int playerCount = 0;
+    public GameObject playerCamera;
     
     
 
     public GameObject yourPrefab;
     public Vector3 spawnPosition = new Vector3(0f, .25f, 0f);
+    public GameObject spawnpoint1;
+    public GameObject spawnpoint2;
+    
 
     void Start()
     {
-        
-        if (isServer)
-        {
-            // Increment the player count when a new player connects to the server
-            playerCount++;
-        }
-
-        if (playerCount == 0)
-        {
-            transform.position = new Vector3(2f, 0f, -3f);
-        }
         
     }
 
@@ -58,10 +51,11 @@ public class PlayerMove : NetworkBehaviour
     void FixedUpdate()
     {
         //Debug.Log(playerCount);
-        if (isLocalPlayer)
         {
             // Control the local player's racket
-            rigidbody3d.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), 0) * speed * Time.fixedDeltaTime;
+            Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            Vector3 localInputDirection = playerCamera.transform.TransformDirection(inputDirection);
+            rigidbody3d.velocity = localInputDirection * speed * Time.fixedDeltaTime;
         }
     }
 }
