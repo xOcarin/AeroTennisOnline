@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 999965400151498490, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 7450518762981165625, guid: cac09dce9e5cb79489ba50d4eae89288, type: 3}
+      objectReference: {fileID: 2766081358209022012, guid: 91447b2c0cae59644a7e768612de6801, type: 3}
     - target: {fileID: 999965400151498490, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: autoCreatePlayer
       value: 1
@@ -745,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156201016784380945, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: HostButton
@@ -888,7 +888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1289346451
 MonoBehaviour:
   m_ObjectHideFlags: 0

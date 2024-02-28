@@ -7,6 +7,8 @@ TagManager:
   - Racket
   - ScoreArea1
   - ScoreArea2
+  - Ball
+  - BallZone
   layers:
   - Default
   - TransparentFX

@@ -31,7 +31,7 @@ public class SteamLobby : MonoBehaviour
     private void Start()
     {
         if(!SteamManager.Initialized){return;}
-
+        
         manager = GetComponent<networkManager>();
 
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
@@ -48,6 +48,7 @@ public class SteamLobby : MonoBehaviour
     {
         GameObject ball = Instantiate(yourPrefab);
         NetworkServer.Spawn(ball);
+        StartButton.SetActive(false);
     }
 
 
