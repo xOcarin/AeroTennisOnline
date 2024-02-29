@@ -50,12 +50,9 @@ public class PlayerMove : NetworkBehaviour
     
     void FixedUpdate()
     {
-        //Debug.Log(playerCount);
-        {
-            // Control the local player's racket
-            Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            // Control the local player
+            Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
             Vector3 localInputDirection = playerCamera.transform.TransformDirection(inputDirection);
             rigidbody3d.velocity = localInputDirection * speed * Time.fixedDeltaTime;
-        }
     }
 }

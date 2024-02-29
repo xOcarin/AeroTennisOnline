@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
 
 
 
-public class swing : MonoBehaviour
+public class swing : NetworkBehaviour
 {
     public bool isInRange = false;
     public GameObject ball;
+    public string shotDir;
 
     private void Start()
     {
@@ -23,14 +25,25 @@ public class swing : MonoBehaviour
             if (isInRange)
             {
              //swing
-             Debug.Log("hit");
              LaunchBallZoneObject();
             }
             else
             {
-             //swing and miss   
-             Debug.Log("miss");
+             //swing and miss 
             }
+        }
+        
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            shotDir = "l";
+        }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            shotDir = "r";
+        }
+        else
+        {
+            shotDir = "n";
         }
         
     }
@@ -55,15 +68,31 @@ public class swing : MonoBehaviour
     
     private void LaunchBallZoneObject()
     {
-        // Example: Launch the BallZone object in the opposite direction
         if (ball != null)
         {
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {
                 Vector3 launchDirection = (ball.transform.position - transform.position).normalized;
-                launchDirection.y = 0.5f; // Add some upward force
-                float launchForce = 15.0f; // Increase the launch force
+
+
+                if (shotDir == "l")
+                {
+                    Debug.Log("left");
+                    launchDirection.x = -.2f;
+                }else if (shotDir == "r")
+                {
+                    Debug.Log("right");
+                    launchDirection.x = .2f;
+                }
+                else
+                {
+                    launchDirection.x = 0f;
+                }
+                Debug.Log(launchDirection.x);
+                Debug.Log(launchDirection);
+                launchDirection.y = 0.5f; //upward force
+                float launchForce = 16.0f; 
                 ballZoneRigidbody.AddForce(launchDirection * launchForce, ForceMode.Impulse);
             }
         }
