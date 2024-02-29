@@ -25,7 +25,7 @@ public class SteamLobby : MonoBehaviour
     public GameObject StartButton;
     
     //ball stuff
-    public GameObject yourPrefab; 
+    public GameObject ballP; 
     public Vector3 spawnPosition = new Vector3(0f, .25f, 0f); 
 
     private void Start()
@@ -46,7 +46,7 @@ public class SteamLobby : MonoBehaviour
 
     public void SpawnBall()
     {
-        GameObject ball = Instantiate(yourPrefab);
+        GameObject ball = Instantiate(ballP);
         NetworkServer.Spawn(ball);
         StartButton.SetActive(false);
     }

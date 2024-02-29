@@ -10,7 +10,6 @@ using UnityEngine;
 public class swing : NetworkBehaviour
 {
     public bool isInRange = false;
-    public GameObject ball;
     public string shotDir;
 
     private void Start()
@@ -20,6 +19,7 @@ public class swing : NetworkBehaviour
 
     private void Update()
     {
+        //Debug.Log("in range: " + isInRange);
         if (Input.GetMouseButtonDown(0))
         {
             if (isInRange)
@@ -68,8 +68,11 @@ public class swing : NetworkBehaviour
     
     private void LaunchBallZoneObject()
     {
+        Debug.Log("hit");
+        GameObject  ball = GameObject.Find("BallOff (1)");
         if (ball != null)
         {
+            Debug.Log("hit2");
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {

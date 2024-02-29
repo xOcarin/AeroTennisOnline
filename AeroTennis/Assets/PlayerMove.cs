@@ -14,7 +14,7 @@ public class PlayerMove : NetworkBehaviour
     
     
 
-    public GameObject yourPrefab;
+    public GameObject ball;
     public Vector3 spawnPosition = new Vector3(0f, .25f, 0f);
     public GameObject spawnpoint1;
     public GameObject spawnpoint2;
@@ -42,7 +42,7 @@ public class PlayerMove : NetworkBehaviour
         }
 
         // Instantiate and spawn the ball on the server
-        GameObject spawnedObject = Instantiate(yourPrefab, spawnPosition, Quaternion.identity);
+        GameObject spawnedObject = Instantiate(ball, spawnPosition, Quaternion.identity);
         NetworkServer.Spawn(spawnedObject);
     }
     

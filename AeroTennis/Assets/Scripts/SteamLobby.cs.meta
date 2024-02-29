@@ -3,7 +3,11 @@ guid: 6e49a2b1a78877d4aa5b9058f0e58971
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - HostButton: {instanceID: 0}
+  - LobbyNameText: {instanceID: 0}
+  - StartButton: {instanceID: 0}
+  - ballP: {fileID: 3886993148028668295, guid: 5857e12c4b2211144b8986eee94f1b52, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
