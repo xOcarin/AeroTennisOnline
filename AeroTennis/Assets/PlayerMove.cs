@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -25,6 +26,17 @@ public class PlayerMove : NetworkBehaviour
         
     }
 
+    private void Update()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+
+        }
+        else
+        {
+            
+        }
+    }
 
     [Command]
     public void CmdSpawnBall()

@@ -69,7 +69,9 @@ public class swing : NetworkBehaviour
     private void LaunchBallZoneObject()
     {
         Debug.Log("hit");
-        GameObject  ball = GameObject.Find("BallOff (1)");
+        GameObject  ball = GameObject.Find("BallHolder");
+        //uncomment for online:
+        //GameObject  ball = GameObject.Find("BallOff (1)");
         if (ball != null)
         {
             Debug.Log("hit2");
