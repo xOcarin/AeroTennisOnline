@@ -16,20 +16,26 @@ public class PlayerAnimScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (Input.GetKey(KeyCode.D))
         {
             movingRight = true;
+            movingLeft = false;
+            animator.SetBool("movingRight", movingRight);
+            animator.SetBool("movingLeft", movingLeft);
         }
-        else if(Input.GetAxisRaw("Horizontal") < 0)
+        else if(Input.GetKey(KeyCode.A))
         {
             movingLeft = true;
+            movingRight = false;
+            animator.SetBool("movingRight", movingRight);
+            animator.SetBool("movingLeft", movingLeft);
         }
         else
         {
             movingLeft = false;
             movingRight = false;
+            animator.SetBool("movingRight", movingRight);
+            animator.SetBool("movingLeft", movingLeft);
         }
-        animator.SetBool("movingRight", movingRight);
-        animator.SetBool("movingLeft", movingLeft);
     }
 }
