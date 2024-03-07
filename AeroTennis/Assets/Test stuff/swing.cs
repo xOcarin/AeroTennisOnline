@@ -10,17 +10,28 @@ using UnityEngine;
 public class swing : NetworkBehaviour
 {
     public bool isInRange = false;
-    public string shotDir;
+    public float shotDir = 0f;
+
+    public float upwardForce = .5f;
+    public float launchForce = 17f;
+    
+    private Vector3 lastMousePosition;
+    private bool isMouseSwinging;
+    private float swingCooldown = 1f;
+    private float lastSwingTime;
+
+    public float mouseDistance;
 
     private void Start()
     {
-        
+        Cursor.visible = false;
+        StartCoroutine(SwingPower());
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //Debug.Log("in range: " + isInRange);
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             if (isInRange)
             {
@@ -32,20 +43,61 @@ public class swing : NetworkBehaviour
              //swing and miss 
             }
         }
-        
-        if (Input.GetKey(KeyCode.LeftControl))
+        */
+
+        if ((Time.time - lastSwingTime) < swingCooldown)
         {
-            shotDir = "l";
-        }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            shotDir = "r";
-        }
-        else
-        {
-            shotDir = "n";
+            mouseDistance = 0;
         }
         
+        if ((mouseDistance > 500) && isInRange)
+        {
+
+            // Check if the swing cooldown has expired
+            if (Time.time - lastSwingTime >= swingCooldown)
+            {
+                Debug.Log(mouseDistance);
+                if (mouseDistance > 500 & mouseDistance < 1000)
+                {
+                    Debug.Log("weak");
+                    shotDir = .05f;
+                }
+                else if(mouseDistance > 1000 & mouseDistance < 1300)
+                {
+                    Debug.Log("Med");
+                    shotDir = .2f;
+                }
+                else if(mouseDistance > 1300)
+                {
+                    Debug.Log("Strong");
+                    shotDir = .4f;
+                }
+
+
+                // If it has, register the swing
+                LaunchBallZoneObject();
+                // Update the last swing time
+                lastSwingTime = Time.time;
+            }
+        }
+        
+
+
+
+    }
+
+    IEnumerator SwingPower()
+    {
+        while (true)
+        {
+            
+            Vector3 currentMousePosition = Input.mousePosition;
+            mouseDistance = Vector3.Distance(currentMousePosition, lastMousePosition);
+            
+            yield return new WaitForSeconds(.5f);
+            mouseDistance = Vector3.Distance(currentMousePosition, lastMousePosition);
+            lastMousePosition = currentMousePosition;
+        }
     }
 
     
@@ -64,40 +116,40 @@ public class swing : NetworkBehaviour
             isInRange = false;
         }
     }
+
+
     
     
     private void LaunchBallZoneObject()
     {
-        Debug.Log("hit");
         GameObject  ball = GameObject.Find("BallHolder");
         //uncomment for online:
         //GameObject  ball = GameObject.Find("BallOff (1)");
         if (ball != null)
         {
-            Debug.Log("hit2");
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {
-                Vector3 launchDirection = (ball.transform.position - transform.position).normalized;
-
-
-                if (shotDir == "l")
+                if (ball.transform.position.x > transform.position.x)
                 {
-                    Debug.Log("left");
-                    launchDirection.x = -.2f;
-                }else if (shotDir == "r")
-                {
-                    Debug.Log("right");
-                    launchDirection.x = .2f;
+                    //play hitleft anim
+                    shotDir *= -1;
                 }
                 else
                 {
-                    launchDirection.x = 0f;
+                    //play hitright anim
                 }
-                Debug.Log(launchDirection.x);
-                Debug.Log(launchDirection);
-                launchDirection.y = 0.5f; //upward force
-                float launchForce = 16.0f; 
+                ball.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + .5f);
+                Vector3 launchDirection = (ball.transform.position - transform.position).normalized;
+
+                
+            
+
+                launchDirection.x = shotDir;
+                    
+                
+                launchDirection.y = upwardForce; //upward force
+                
                 ballZoneRigidbody.AddForce(launchDirection * launchForce, ForceMode.Impulse);
             }
         }
