@@ -14,92 +14,48 @@ public class swing : NetworkBehaviour
 
     public float upwardForce = .5f;
     public float launchForce = 17f;
+
+    public bool cooldownOver = true;
     
-    private Vector3 lastMousePosition;
-    private bool isMouseSwinging;
-    private float swingCooldown = 1f;
-    private float lastSwingTime;
-
-    public float mouseDistance;
-
+    public GameObject PlayerModel;
+    
     private void Start()
     {
+        cooldownOver = true;
         Cursor.visible = false;
-        StartCoroutine(SwingPower());
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        //Debug.Log("in range: " + isInRange);
-        /*if (Input.GetMouseButtonDown(0))
+        //print((Input.GetAxis("Mouse X")));
+        if ((cooldownOver && ((Input.GetAxis("Mouse X") != 0))) && isInRange )
         {
-            if (isInRange)
+            print(Input.GetAxis("Mouse X"));
+            // Determine shotDir based on mouse movement
+            if(Input.GetAxis("Mouse X") < 0)
             {
-             //swing
-             LaunchBallZoneObject();
+                print("Mouse moved left");
+                shotDir = -0.5f;
             }
-            else
+            else if(Input.GetAxis("Mouse X") > 0)
             {
-             //swing and miss 
+                print("Mouse moved right");
+                shotDir = 0.5f;
             }
+
+            // Launch ball and start cooldown
+            LaunchBallZoneObject();
+            StartCoroutine(StartCooldown());
         }
-        */
-
-        if ((Time.time - lastSwingTime) < swingCooldown)
-        {
-            mouseDistance = 0;
-        }
-        
-        if ((mouseDistance > 500) && isInRange)
-        {
-
-            // Check if the swing cooldown has expired
-            if (Time.time - lastSwingTime >= swingCooldown)
-            {
-                Debug.Log(mouseDistance);
-                if (mouseDistance > 500 & mouseDistance < 1000)
-                {
-                    Debug.Log("weak");
-                    shotDir = .05f;
-                }
-                else if(mouseDistance > 1000 & mouseDistance < 1300)
-                {
-                    Debug.Log("Med");
-                    shotDir = .2f;
-                }
-                else if(mouseDistance > 1300)
-                {
-                    Debug.Log("Strong");
-                    shotDir = .4f;
-                }
-
-
-                // If it has, register the swing
-                LaunchBallZoneObject();
-                // Update the last swing time
-                lastSwingTime = Time.time;
-            }
-        }
-        
-
-
-
     }
-
-    IEnumerator SwingPower()
+    
+    //only really relavent to testing, as the ball usually wouldnt be in range that fast anyway.
+    IEnumerator StartCooldown()
     {
-        while (true)
-        {
-            
-            Vector3 currentMousePosition = Input.mousePosition;
-            mouseDistance = Vector3.Distance(currentMousePosition, lastMousePosition);
-            
-            yield return new WaitForSeconds(.5f);
-            mouseDistance = Vector3.Distance(currentMousePosition, lastMousePosition);
-            lastMousePosition = currentMousePosition;
-        }
+        cooldownOver = false;
+        yield return new WaitForSeconds(1f);
+        cooldownOver = true;
     }
-
     
     private void OnTriggerEnter(Collider other)
     {
@@ -119,10 +75,12 @@ public class swing : NetworkBehaviour
 
 
     
+
+    
     
     private void LaunchBallZoneObject()
     {
-        GameObject  ball = GameObject.Find("BallHolder");
+        GameObject ball = GameObject.Find("BallHolder");
         //uncomment for online:
         //GameObject  ball = GameObject.Find("BallOff (1)");
         if (ball != null)
@@ -133,11 +91,12 @@ public class swing : NetworkBehaviour
                 if (ball.transform.position.x > transform.position.x)
                 {
                     //play hitleft anim
-                    shotDir *= -1;
+                    PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
                 }
                 else
                 {
                     //play hitright anim
+                    PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
                 }
                 ball.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + .5f);
                 Vector3 launchDirection = (ball.transform.position - transform.position).normalized;

@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerAnimScript : MonoBehaviour
 {
+    
+    
     private Animator animator;
     private bool movingRight = false;
     private bool movingLeft = false;
+
+
+
+
+    
 
     void Start()
     {
@@ -38,4 +45,39 @@ public class PlayerAnimScript : MonoBehaviour
             animator.SetBool("movingLeft", movingLeft);
         }
     }
+
+    public void playAnimation(string animation)
+    {
+        animator.Play(animation);
+        StartCoroutine(ReturnToDefaultState(animation));
+    }
+
+    
+    
+    IEnumerator ReturnToDefaultState(string animationName)
+    {
+        AnimationClip animationClip = GetAnimationClip(animationName);
+        
+        yield return new WaitForSeconds(animationClip.length);
+        animator.Play("idleAnim");
+    }
+    
+    
+    private AnimationClip GetAnimationClip(string clipName)
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == clipName)
+            {
+                return clip;
+            }
+        }
+        Debug.LogWarning("Animation clip " + clipName + " not found!");
+        return null;
+    }
+
+
+
+
 }
