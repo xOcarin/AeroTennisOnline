@@ -35,11 +35,13 @@ public class swing : NetworkBehaviour
             if(Input.GetAxis("Mouse X") < 0)
             {
                 print("Mouse moved left");
+                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
                 shotDir = -0.5f;
             }
             else if(Input.GetAxis("Mouse X") > 0)
             {
                 print("Mouse moved right");
+                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
                 shotDir = 0.5f;
             }
 
@@ -88,25 +90,13 @@ public class swing : NetworkBehaviour
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {
-                if (ball.transform.position.x > transform.position.x)
-                {
-                    //play hitleft anim
-                    PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
-                }
-                else
-                {
-                    //play hitright anim
-                    PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
-                }
+                ballZoneRigidbody.velocity = Vector3.zero;
+                
                 ball.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + .5f);
                 Vector3 launchDirection = (ball.transform.position - transform.position).normalized;
-
                 
-            
-
+                
                 launchDirection.x = shotDir;
-                    
-                
                 launchDirection.y = upwardForce; //upward force
                 
                 ballZoneRigidbody.AddForce(launchDirection * launchForce, ForceMode.Impulse);
