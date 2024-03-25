@@ -32,33 +32,12 @@ public class swing : NetworkBehaviour
     {
         cooldownOver = true;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void FixedUpdate()
     {
-        /*
-        print(cooldownOver);
-        if ((Input.GetAxis("Mouse X") != 0) && cooldownOver)
-        {
-            if(Input.GetAxis("Mouse X") < 0)
-            {
-                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
-                shotDir = -0.5f;
-            }
-            else if(Input.GetAxis("Mouse X") > 0)
-            {
-                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
-                shotDir = 0.5f;
-            }
 
-            if (isInRange)
-            {
-                LaunchBall();
-            }
-            StartCoroutine(StartCooldown());
-        }
-        */
-        
         // Track mouse input
         Vector3 currentMousePos = Input.mousePosition;
 
@@ -66,17 +45,49 @@ public class swing : NetworkBehaviour
         float swipeDistance = (currentMousePos - lastMousePos).magnitude;
 
         // Check for swipe gesture
-        if (swipeDistance > swipeThreshold)
+        if ((swipeDistance > swipeThreshold) && cooldownOver)
         {
             if(Input.GetAxis("Mouse X") < 0)
             {
+                //left
                 PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
-                shotDir = -0.5f;
+                if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+                {
+                    shotDir = 0f;
+                }
+                else if(Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+                {
+                    shotDir = -0.5f;
+                }
+                else if(Input.GetMouseButton(1) && !Input.GetMouseButton(0))
+                {
+                    shotDir = -0.15f;
+                }
+                else
+                { 
+                    shotDir = -0.25f;
+                }
             }
             else if(Input.GetAxis("Mouse X") > 0)
             {
+                //right
                 PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
-                shotDir = 0.5f;
+                if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+                {
+                    shotDir = 0f;
+                }
+                else if(Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+                {
+                    shotDir = 0.5f;
+                }
+                else if(Input.GetMouseButton(1) && !Input.GetMouseButton(0))
+                {
+                    shotDir = 0.15f;
+                }
+                else
+                { 
+                    shotDir = 0.25f;
+                }
             }
 
             if (isInRange)
@@ -100,7 +111,7 @@ public class swing : NetworkBehaviour
     IEnumerator StartCooldown()
     {
         cooldownOver = false;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.5f);
         cooldownOver = true;
     }
     
