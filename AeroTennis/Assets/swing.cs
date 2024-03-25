@@ -19,6 +19,15 @@ public class swing : NetworkBehaviour
     
     public GameObject PlayerModel;
     
+    Vector3 lastMousePos;
+    float swipeThreshold = 300f; // Adjust this value as needed
+    
+ 
+    
+    
+    
+    
+    
     private void Start()
     {
         cooldownOver = true;
@@ -27,35 +36,71 @@ public class swing : NetworkBehaviour
 
     void FixedUpdate()
     {
-        //print((Input.GetAxis("Mouse X")));
-        if ((cooldownOver && ((Input.GetAxis("Mouse X") != 0))) && isInRange )
+        /*
+        print(cooldownOver);
+        if ((Input.GetAxis("Mouse X") != 0) && cooldownOver)
         {
-            print(Input.GetAxis("Mouse X"));
-            // Determine shotDir based on mouse movement
             if(Input.GetAxis("Mouse X") < 0)
             {
-                print("Mouse moved left");
                 PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
                 shotDir = -0.5f;
             }
             else if(Input.GetAxis("Mouse X") > 0)
             {
-                print("Mouse moved right");
                 PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
                 shotDir = 0.5f;
             }
 
-            // Launch ball and start cooldown
-            LaunchBallZoneObject();
+            if (isInRange)
+            {
+                LaunchBall();
+            }
             StartCoroutine(StartCooldown());
         }
+        */
+        
+        // Track mouse input
+        Vector3 currentMousePos = Input.mousePosition;
+
+        // Calculate swipe distance
+        float swipeDistance = (currentMousePos - lastMousePos).magnitude;
+
+        // Check for swipe gesture
+        if (swipeDistance > swipeThreshold)
+        {
+            if(Input.GetAxis("Mouse X") < 0)
+            {
+                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
+                shotDir = -0.5f;
+            }
+            else if(Input.GetAxis("Mouse X") > 0)
+            {
+                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
+                shotDir = 0.5f;
+            }
+
+            if (isInRange)
+            {
+                LaunchBall();
+            }
+            StartCoroutine(StartCooldown());
+        }
+
+        lastMousePos = currentMousePos;
+        
+        
+        
+        
+        
+        
+        
     }
     
     //only really relavent to testing, as the ball usually wouldnt be in range that fast anyway.
     IEnumerator StartCooldown()
     {
         cooldownOver = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.1f);
         cooldownOver = true;
     }
     
@@ -80,7 +125,7 @@ public class swing : NetworkBehaviour
 
     
     
-    private void LaunchBallZoneObject()
+    private void LaunchBall()
     {
         GameObject ball = GameObject.Find("BallHolder");
         //uncomment for online:
@@ -97,7 +142,7 @@ public class swing : NetworkBehaviour
                 
                 
                 launchDirection.x = shotDir;
-                launchDirection.y = upwardForce; //upward force
+                launchDirection.y = upwardForce;
                 
                 ballZoneRigidbody.AddForce(launchDirection * launchForce, ForceMode.Impulse);
             }

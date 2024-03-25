@@ -14,6 +14,7 @@ public class TrainingScript : MonoBehaviour
             
             Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
             otherRigidbody.velocity = Vector3.zero;
+            otherRigidbody.angularVelocity = Vector3.zero;
             other.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - .5f);
             Vector3 launchDirection = (other.transform.position - transform.position).normalized * -1;
             
@@ -21,7 +22,7 @@ public class TrainingScript : MonoBehaviour
             launchDirection.y = .5f; //upward force
             
             
-            otherRigidbody.AddForce(launchDirection * 17, ForceMode.Impulse);
+            otherRigidbody.AddForce(launchDirection * 16, ForceMode.Impulse);
         }
     }
 }
