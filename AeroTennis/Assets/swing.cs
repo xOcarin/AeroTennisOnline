@@ -20,7 +20,7 @@ public class swing : NetworkBehaviour
     public GameObject PlayerModel;
     
     Vector3 lastMousePos;
-    float swipeThreshold = 300f; // Adjust this value as needed
+    float swipeThreshold =150f; // Adjust this value as needed
     
  
     
@@ -65,7 +65,7 @@ public class swing : NetworkBehaviour
                 }
                 else
                 { 
-                    shotDir = -0.25f;
+                    shotDir = -0.33f;
                 }
             }
             else if(Input.GetAxis("Mouse X") > 0)
@@ -86,7 +86,7 @@ public class swing : NetworkBehaviour
                 }
                 else
                 { 
-                    shotDir = 0.25f;
+                    shotDir = 0.33f;
                 }
             }
 
