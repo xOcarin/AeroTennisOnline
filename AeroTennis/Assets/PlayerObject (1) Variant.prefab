@@ -218,7 +218,11 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   isInRange: 0
-  shotDir: 
+  shotDir: 0
+  upwardForce: 0.5
+  launchForce: 17
+  cooldownOver: 1
+  PlayerModel: {fileID: 0}
 --- !u!1 &5620597361169197129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2944181452482386237, guid: 91447b2c0cae59644a7e768612de6801, type: 3}
@@ -240,4 +244,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   isInRange: 0
-  shotDir: 
+  shotDir: 0
+  upwardForce: 0.5
+  launchForce: 17
+  cooldownOver: 1
+  PlayerModel: {fileID: 0}

@@ -5,116 +5,97 @@ using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using Mirror;
+using System.Collections;
+using UnityEngine;
 
+using Mirror;
+using System.Collections;
+using UnityEngine;
+using Mirror;
+using UnityEngine;
 
 public class swing : NetworkBehaviour
 {
-    public bool isInRange = false;
-    public float shotDir = 0f;
+    private bool isInRange = false;
 
+    public float shotDir = 0f;
     public float upwardForce = .5f;
     public float launchForce = 17f;
-
     public bool cooldownOver = true;
-    
     public GameObject PlayerModel;
-    
     Vector3 lastMousePos;
-    float swipeThreshold =150f; // Adjust this value as needed
+    float swipeThreshold = 150f;
+    private GameObject thisPlayer;
     
- 
-    
-    
-    
-    
-    
+
     private void Start()
     {
         cooldownOver = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }
-
+    
     void FixedUpdate()
     {
+        if (!isLocalPlayer)
+            return;
+        
 
-        // Track mouse input
         Vector3 currentMousePos = Input.mousePosition;
-
-        // Calculate swipe distance
         float swipeDistance = (currentMousePos - lastMousePos).magnitude;
-
-        // Check for swipe gesture
-        if ((swipeDistance > swipeThreshold) && cooldownOver)
+        //print(swipeDistance);
+        if ((swipeDistance > swipeThreshold) && cooldownOver )
         {
-            if(Input.GetAxis("Mouse X") < 0)
+            if (Input.GetAxis("Mouse X") < 0)
             {
-                //left
-                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingRight");
+                PlayerModel.GetComponent<PlayerAnimScript>().PlayAnimation("SwingMovingRight");
                 if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
-                {
-                    shotDir = 0f;
-                }
-                else if(Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-                {
+                    shotDir = -0f;
+                else if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
                     shotDir = -0.5f;
-                }
-                else if(Input.GetMouseButton(1) && !Input.GetMouseButton(0))
-                {
-                    shotDir = -0.15f;
-                }
+                else if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
+                    shotDir = -.15f;
                 else
-                { 
                     shotDir = -0.33f;
+                if (isInRange)
+                {
+                    LaunchBall(shotDir);
                 }
             }
-            else if(Input.GetAxis("Mouse X") > 0)
+            else if (Input.GetAxis("Mouse X") > 0)
             {
-                //right
-                PlayerModel.GetComponent<PlayerAnimScript>().playAnimation("SwingMovingleft");
+                PlayerModel.GetComponent<PlayerAnimScript>().PlayAnimation("SwingMovingleft");
                 if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
-                {
                     shotDir = 0f;
-                }
-                else if(Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-                {
+                else if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
                     shotDir = 0.5f;
-                }
-                else if(Input.GetMouseButton(1) && !Input.GetMouseButton(0))
-                {
+                else if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
                     shotDir = 0.15f;
-                }
                 else
-                { 
                     shotDir = 0.33f;
+                if (isInRange)
+                {
+                    LaunchBall(shotDir);
                 }
             }
 
-            if (isInRange)
-            {
-                LaunchBall();
-            }
+            
+                
+
             StartCoroutine(StartCooldown());
         }
 
         lastMousePos = currentMousePos;
-        
-        
-        
-        
-        
-        
-        
     }
-    
-    //only really relavent to testing, as the ball usually wouldnt be in range that fast anyway.
+
     IEnumerator StartCooldown()
     {
         cooldownOver = false;
         yield return new WaitForSeconds(.5f);
         cooldownOver = true;
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BallZone"))
@@ -130,37 +111,31 @@ public class swing : NetworkBehaviour
             isInRange = false;
         }
     }
-
-
     
 
-    
-    
-    private void LaunchBall()
+    [Command]
+    private void LaunchBall(float curve)
     {
-        GameObject ball = GameObject.Find("BallHolder");
-        //uncomment for online:
-        //GameObject  ball = GameObject.Find("BallOff (1)");
+        GameObject ball = GameObject.FindGameObjectWithTag("BallZone");
         if (ball != null)
         {
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {
+                print(shotDir);
                 ballZoneRigidbody.velocity = Vector3.zero;
-                
                 ball.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + .5f);
                 Vector3 launchDirection = (ball.transform.position - transform.position).normalized;
+                if (transform.position.z > 0)
+                {
+                    launchDirection.z *= -1;
+                    curve *= -1;
+                }
                 
-                
-                launchDirection.x = shotDir;
+                launchDirection.x = curve;
                 launchDirection.y = upwardForce;
-                
                 ballZoneRigidbody.AddForce(launchDirection * launchForce, ForceMode.Impulse);
             }
         }
     }
-    
-    
-
-    
 }

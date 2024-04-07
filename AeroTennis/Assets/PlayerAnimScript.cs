@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
+using UnityEngine;
 
-public class PlayerAnimScript : MonoBehaviour
+using UnityEngine;
+using System.Collections;
+
+public class PlayerAnimScript : NetworkBehaviour
 {
-    
-    
     private Animator animator;
     private bool movingRight = false;
     private bool movingLeft = false;
-
-
-
-
-    
 
     void Start()
     {
@@ -23,46 +21,53 @@ public class PlayerAnimScript : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer) // Check if this is not the local player
+            return;
+
         if (Input.GetKey(KeyCode.D))
         {
             movingRight = true;
             movingLeft = false;
-            animator.SetBool("movingRight", movingRight);
-            animator.SetBool("movingLeft", movingLeft);
         }
-        else if(Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             movingLeft = true;
             movingRight = false;
-            animator.SetBool("movingRight", movingRight);
-            animator.SetBool("movingLeft", movingLeft);
         }
         else
         {
             movingLeft = false;
             movingRight = false;
-            animator.SetBool("movingRight", movingRight);
-            animator.SetBool("movingLeft", movingLeft);
         }
+
+        UpdateAnimation();
     }
 
-    public void playAnimation(string animation)
+    void UpdateAnimation()
     {
+        animator.SetBool("movingRight", movingRight);
+        animator.SetBool("movingLeft", movingLeft);
+    }
+    
+    public void PlayAnimation(string animation)
+    {
+        if (!isLocalPlayer) 
+            return;
         animator.Play(animation);
         StartCoroutine(ReturnToDefaultState(animation));
     }
 
     
-    
     IEnumerator ReturnToDefaultState(string animationName)
     {
         AnimationClip animationClip = GetAnimationClip(animationName);
-        
-        yield return new WaitForSeconds(animationClip.length);
-        animator.Play("idleAnim");
+        if (animationClip != null)
+        {
+            yield return new WaitForSeconds(animationClip.length);
+            animator.Play("idleAnim");
+        }
     }
-    
-    
+
     private AnimationClip GetAnimationClip(string clipName)
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
@@ -76,8 +81,4 @@ public class PlayerAnimScript : MonoBehaviour
         Debug.LogWarning("Animation clip " + clipName + " not found!");
         return null;
     }
-
-
-
-
 }
