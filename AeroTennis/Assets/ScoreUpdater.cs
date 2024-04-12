@@ -57,6 +57,10 @@ public class ScoreUpdater : NetworkBehaviour
                 Player1Body = Player1.GetComponent<Rigidbody>();
                 Player2Body = Player2.GetComponent<Rigidbody>();
                 PlayersAssigned = true;
+                
+                ballZoneRigidbody.velocity = Vector3.zero;
+                ballZoneRigidbody.angularVelocity = Vector3.zero;
+                Ball.transform.position = new Vector3(0, 1, 10);
             }
         }
         
