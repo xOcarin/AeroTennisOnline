@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using ParrelSync.NonCore;
 using UnityEngine;
 
 public class TrainingScript : MonoBehaviour
