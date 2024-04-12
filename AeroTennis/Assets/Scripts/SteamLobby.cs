@@ -45,7 +45,7 @@ public class SteamLobby : NetworkBehaviour
         HostButton.SetActive(false);
     }
 
-    [Command]
+
     public void SpawnBall()
     {
         GameObject ball = Instantiate(ballP);
@@ -78,6 +78,10 @@ public class SteamLobby : NetworkBehaviour
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         //everyone
+        Rigidbody ballZoneRigidbody = ballP.GetComponent<Rigidbody>();
+        ballZoneRigidbody.velocity = Vector3.zero;
+        ballZoneRigidbody.angularVelocity = Vector3.zero;
+        ballP.transform.position = new Vector3(0, 1, 10);
         HostButton.SetActive((false));
         CurrentLobbyID = callback.m_ulSteamIDLobby;
         LobbyNameText.gameObject.SetActive(true);
