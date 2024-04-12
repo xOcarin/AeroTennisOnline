@@ -2406,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: 999965400151498490, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 2766081358209022012, guid: 91447b2c0cae59644a7e768612de6801, type: 3}
+      objectReference: {fileID: 8902045748928306465, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
     - target: {fileID: 999965400151498490, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: autoCreatePlayer
       value: 1
@@ -2429,8 +2429,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156201016784380945, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
+      propertyPath: ballP
+      value: 
+      objectReference: {fileID: 1303422988738503350, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: HostButton
       value: 
@@ -3239,131 +3243,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 244778379}
   m_SourcePrefab: {fileID: 100100000, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
---- !u!1 &1589268532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1589268537}
-  - component: {fileID: 1589268536}
-  - component: {fileID: 1589268535}
-  - component: {fileID: 1589268534}
-  - component: {fileID: 1589268533}
-  m_Layer: 0
-  m_Name: NetworkManager (Steam)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1589268533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589268532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Channels: 0200000001000000
-  Timeout: 25
-  SteamAppID: 480
-  AllowSteamRelay: 1
-  UseNextGenSteamNetworking: 1
-  SteamUserID: 0
---- !u!114 &1589268534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589268532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1589268535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589268532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
---- !u!114 &1589268536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589268532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
-  runInBackground: 1
-  headlessStartMode: 1
-  editorAutoStart: 0
-  sendRate: 60
-  autoStartServerBuild: 0
-  autoConnectClientBuild: 0
-  offlineScene: 
-  onlineScene: 
-  transport: {fileID: 1589268533}
-  networkAddress: localhost
-  maxConnections: 100
-  disconnectInactiveConnections: 0
-  disconnectInactiveTimeout: 60
-  authenticator: {fileID: 0}
-  playerPrefab: {fileID: 785401328341253820, guid: 8ebee4a52a1649340a3573b409396a20, type: 3}
-  autoCreatePlayer: 1
-  playerSpawnMethod: 0
-  spawnPrefabs: []
-  exceptionsDisconnect: 1
-  snapshotSettings:
-    bufferTimeMultiplier: 2
-    bufferLimit: 32
-    catchupNegativeThreshold: -1
-    catchupPositiveThreshold: 1
-    catchupSpeed: 0.019999999552965164
-    slowdownSpeed: 0.03999999910593033
-    driftEmaDuration: 1
-    dynamicAdjustment: 1
-    dynamicAdjustmentTolerance: 1
-    deliveryTimeEmaDuration: 2
-  evaluationMethod: 0
-  evaluationInterval: 3
-  timeInterpolationGui: 0
---- !u!4 &1589268537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589268532}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.695763, y: -14.359241, z: 28.695278}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1773949618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,7 +3711,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 396082122}
   - {fileID: 1289346454}
-  - {fileID: 1589268537}
   - {fileID: 1298632563}
   - {fileID: 1044158488}
   - {fileID: 1463450955}

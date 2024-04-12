@@ -6,7 +6,7 @@ using Mirror;
 using Steamworks;
 using UnityEngine.UI;
 
-public class SteamLobby : MonoBehaviour
+public class SteamLobby : NetworkBehaviour
 {
     //Callbacks
     protected Callback<LobbyCreated_t> LobbyCreated;
@@ -42,8 +42,10 @@ public class SteamLobby : MonoBehaviour
     public void HostLobby()
     {
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
+        HostButton.SetActive(false);
     }
 
+    [Command]
     public void SpawnBall()
     {
         GameObject ball = Instantiate(ballP);
