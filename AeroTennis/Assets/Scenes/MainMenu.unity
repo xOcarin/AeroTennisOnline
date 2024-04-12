@@ -4463,9 +4463,21 @@ PrefabInstance:
       propertyPath: cameraHolder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4778885254274199572, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917866652334496236, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5539068882317149673, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
       propertyPath: sceneId
       value: 427766669
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137181409042952811, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8902045748928306465, guid: 8b2e21b1d3ea79b40a7b76c4a203ea4e, type: 3}
       propertyPath: m_Name

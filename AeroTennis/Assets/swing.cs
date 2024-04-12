@@ -122,7 +122,6 @@ public class swing : NetworkBehaviour
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();
             if (ballZoneRigidbody != null)
             {
-                print(shotDir);
                 ballZoneRigidbody.velocity = Vector3.zero;
                 ball.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + .5f);
                 Vector3 launchDirection = (ball.transform.position - transform.position).normalized;

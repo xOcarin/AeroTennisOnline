@@ -9,6 +9,9 @@ TagManager:
   - ScoreArea2
   - Ball
   - BallZone
+  - PlayerCanvas
+  - scoretext1
+  - scoretext2
   layers:
   - Default
   - TransparentFX
