@@ -79,18 +79,16 @@ public class ScoreUpdater : NetworkBehaviour
 
         P1CurrPos = Player1.transform.position;
         P2CurrPos = Player2.transform.position;
+        
         if (scorer == 1)
         {
-            P1animator.Play("playerMoveLeft");
-            P2animator.Play("playerMoveLeft");
-          
+            P1animator.Play("Victroy");
+            P2animator.Play("Loss");
         }
         else
         {
-            P1animator.Play("SwingMovingleft");
-            P2animator.Play("SwingMovingleft");
-        
-          
+            P2animator.Play("Victroy");
+            P1animator.Play("Loss");
         }
         
         yield return new WaitForSeconds(duration);

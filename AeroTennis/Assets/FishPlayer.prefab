@@ -568,11 +568,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817637446381128542, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: speed
-      value: 200
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 2237272254678532585, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240943115216779543, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
+      propertyPath: field of view
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 2323516226246750006, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: m_Enabled
