@@ -12,6 +12,7 @@ TagManager:
   - PlayerCanvas
   - scoretext1
   - scoretext2
+  - OUT
   layers:
   - Default
   - TransparentFX

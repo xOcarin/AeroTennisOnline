@@ -13,6 +13,7 @@ using Mirror;
 using System.Collections;
 using UnityEngine;
 using Mirror;
+using Mirror.Examples.Pong;
 using UnityEngine;
 
 public class swing : NetworkBehaviour
@@ -27,6 +28,7 @@ public class swing : NetworkBehaviour
     Vector3 lastMousePos;
     float swipeThreshold = 150f;
     private GameObject thisPlayer;
+    public Vector3 BallHitLoc;
     
 
     private void Start()
@@ -79,10 +81,6 @@ public class swing : NetworkBehaviour
                     LaunchBall(shotDir);
                 }
             }
-
-            
-                
-
             StartCoroutine(StartCooldown());
         }
 
@@ -117,6 +115,8 @@ public class swing : NetworkBehaviour
     private void LaunchBall(float curve)
     {
         GameObject ball = GameObject.FindGameObjectWithTag("BallZone");
+        BallHitLoc = ball.transform.position;
+        print(BallHitLoc);
         if (ball != null)
         {
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();

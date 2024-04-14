@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 70253260}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: ScoreArea2
+  m_TagString: OUT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,6 +178,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &70253257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -366,6 +368,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &144740371
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -475,7 +479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &191251191
 Transform:
   m_ObjectHideFlags: 0
@@ -510,6 +514,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &191251193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -538,7 +544,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191251190}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1362,7 +1368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &789241490
 Transform:
   m_ObjectHideFlags: 0
@@ -1397,6 +1403,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &789241492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1425,7 +1433,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789241489}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1705,7 +1713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &895628623
 Transform:
   m_ObjectHideFlags: 0
@@ -1740,6 +1748,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &895628625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1768,7 +1778,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895628622}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1968,11 +1978,11 @@ GameObject:
   - component: {fileID: 963078206}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: ScoreArea1
+  m_TagString: OUT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &963078201
 Transform:
   m_ObjectHideFlags: 0
@@ -2007,6 +2017,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &963078203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2035,7 +2047,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963078200}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2112,11 +2124,11 @@ GameObject:
   - component: {fileID: 993361305}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: ScoreArea1
+  m_TagString: OUT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &993361300
 Transform:
   m_ObjectHideFlags: 0
@@ -2151,6 +2163,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &993361302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2179,7 +2193,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993361299}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2306,6 +2320,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &1038581377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2429,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156201016784380945, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: ballP
@@ -2512,7 +2528,7 @@ GameObject:
   - component: {fileID: 1061414668}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: ScoreArea2
+  m_TagString: OUT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2551,6 +2567,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &1061414665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2727,7 +2745,7 @@ Transform:
   m_GameObject: {fileID: 1111883969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.095061, y: -4.03286, z: -9.651535}
+  m_LocalPosition: {x: 7.095061, y: -4.03286, z: -13.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2763,7 +2781,7 @@ Transform:
   m_GameObject: {fileID: 1113970896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -4.03286, z: -9.4}
+  m_LocalPosition: {x: 7.3, y: -4.03286, z: -7.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2793,7 +2811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1289346451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3186,6 +3204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BallObj
       objectReference: {fileID: 0}
+    - target: {fileID: 1303422988738503350, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2900774153488865162, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3204,7 +3226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3985760854201982705, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.01
+      value: 10.33
       objectReference: {fileID: 0}
     - target: {fileID: 3985760854201982705, guid: a3cf1f331c416044eaaff080f0a89c66, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3317,6 +3339,8 @@ MonoBehaviour:
   Player2: {fileID: 0}
   Ball: {fileID: 0}
   moveCooldown: 0
+  cooldown: 0
+  LastPlayerToHit: 0
 --- !u!65 &1773949621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3738,7 +3762,6 @@ SceneRoots:
   - {fileID: 911543080}
   - {fileID: 725927021}
   - {fileID: 83112964}
-  - {fileID: 1505980033}
   - {fileID: 847363310}
   - {fileID: 2550834132778459725}
   - {fileID: 3642930627091902084}
@@ -3750,3 +3773,4 @@ SceneRoots:
   - {fileID: 1111883970}
   - {fileID: 1113970897}
   - {fileID: 692170678}
+  - {fileID: 1505980033}
