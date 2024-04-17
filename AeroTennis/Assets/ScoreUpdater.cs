@@ -38,13 +38,14 @@ public class ScoreUpdater : NetworkBehaviour
 
     public int LastPlayerToHit;
     
+    private AudioManager2 audioManager;
     
 
     private void Start()
     {
         Ball = GameObject.FindGameObjectWithTag("BallZone");
         ballZoneRigidbody = Ball.GetComponent<Rigidbody>();
-        
+        audioManager = FindObjectOfType<AudioManager2>();
     }
 
     private void Update()
