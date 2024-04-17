@@ -86,8 +86,7 @@ public class ScoreUpdater : NetworkBehaviour
         {
             LastPlayerToHit = 2;
         }
-    
-        print(LastPlayerToHit);
+        
 }
 
  

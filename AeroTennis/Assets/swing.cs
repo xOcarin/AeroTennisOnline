@@ -5,16 +5,6 @@ using Mirror;
 using Unity.VisualScripting;
 using UnityEngine;
 
-using Mirror;
-using System.Collections;
-using UnityEngine;
-
-using Mirror;
-using System.Collections;
-using UnityEngine;
-using Mirror;
-using Mirror.Examples.Pong;
-using UnityEngine;
 
 public class swing : NetworkBehaviour
 {
@@ -29,6 +19,9 @@ public class swing : NetworkBehaviour
     float swipeThreshold = 150f;
     private GameObject thisPlayer;
     public Vector3 BallHitLoc;
+    public string sound;
+    
+    public AudioManager soundPlayer;
     
 
     private void Start()
@@ -53,32 +46,63 @@ public class swing : NetworkBehaviour
             {
                 PlayerModel.GetComponent<PlayerAnimScript>().PlayAnimation("SwingMovingRight");
                 if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+                {
                     shotDir = -0f;
+                    sound = "stocky hit";
+                }
                 else if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-                    shotDir = -0.5f;
+                {
+                    shotDir = -0.4f;
+                    sound = "hard hit";
+                }
                 else if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
-                    shotDir = -.15f;
+                {
+                    shotDir = -.15f; 
+                    sound = "wide hit";
+                }
                 else
-                    shotDir = -0.33f;
+                {
+                    shotDir = -0.25f;
+                    sound = "normal hit";
+                }
                 if (isInRange)
                 {
                     LaunchBall(shotDir);
+                }
+                else
+                {
+                    soundPlayer.PlaySound("swing");
                 }
             }
             else if (Input.GetAxis("Mouse X") > 0)
             {
                 PlayerModel.GetComponent<PlayerAnimScript>().PlayAnimation("SwingMovingleft");
                 if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+                {
                     shotDir = 0f;
+                    sound = "stocky hit";
+                }
                 else if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
-                    shotDir = 0.5f;
+                {
+                    shotDir = 0.4f;
+                    sound = "hard hit";
+                }
                 else if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
+                {
                     shotDir = 0.15f;
+                    sound = "wide hit";
+                }
                 else
-                    shotDir = 0.33f;
+                {
+                    shotDir = 0.25f;
+                    sound = "normal hit";
+                }
                 if (isInRange)
                 {
                     LaunchBall(shotDir);
+                }else
+                {
+                    soundPlayer.PlaySound("swing");
                 }
             }
             StartCoroutine(StartCooldown());
@@ -114,9 +138,9 @@ public class swing : NetworkBehaviour
     [Command]
     private void LaunchBall(float curve)
     {
+        soundPlayer.PlaySound(sound);
         GameObject ball = GameObject.FindGameObjectWithTag("BallZone");
         BallHitLoc = ball.transform.position;
-        print(BallHitLoc);
         if (ball != null)
         {
             Rigidbody ballZoneRigidbody = ball.GetComponent<Rigidbody>();

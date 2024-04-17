@@ -13,6 +13,8 @@ TagManager:
   - scoretext1
   - scoretext2
   - OUT
+  - audiomanager
+  - ground
   layers:
   - Default
   - TransparentFX
