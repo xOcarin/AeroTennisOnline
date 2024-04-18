@@ -121,14 +121,10 @@ public class ScoreUpdater : NetworkBehaviour
         {
             P1animator.Play("Victroy");
             P2animator.Play("Loss");
-            if (P1CANVASanimator.gameObject.activeSelf && !IsPlayingAnimation(P1CANVASanimator, "score"))
-            {
+           
                 P1CANVASanimator.Play("score");
-            }
-            if (P2CANVASanimator.gameObject.activeSelf && !IsPlayingAnimation(P2CANVASanimator, "oscore"))
-            {
                 P2CANVASanimator.Play("oscore");
-            }
+            
            
         }
         else if(scorer == 2)
@@ -154,6 +150,9 @@ public class ScoreUpdater : NetworkBehaviour
         yield return new WaitForSeconds(duration);
         cooldown = false;
         
+        
+        P1CANVASanimator.Play("canvasidle");
+        P2CANVASanimator.Play("canvasidle");
         if (scorer == 1)
         {
             ballZoneRigidbody.velocity = Vector3.zero;
