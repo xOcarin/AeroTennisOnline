@@ -44,6 +44,8 @@ public class ScoreUpdater : NetworkBehaviour
     public int LastPlayerToHit;
     
     private AudioManager2 audioManager;
+
+    public GameObject player1spawn;
     
 
     private void Start()
@@ -76,6 +78,7 @@ public class ScoreUpdater : NetworkBehaviour
                 ballZoneRigidbody.velocity = Vector3.zero;
                 ballZoneRigidbody.angularVelocity = Vector3.zero;
                 Ball.transform.position = new Vector3(0, 1, 10);
+                Destroy(player1spawn);
 
             }
         }

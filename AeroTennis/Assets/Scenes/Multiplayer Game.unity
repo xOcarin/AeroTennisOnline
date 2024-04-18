@@ -185,6 +185,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &70253257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -380,6 +381,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &144740371
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -531,6 +533,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &191251193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1566,6 +1569,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &789241492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1916,6 +1920,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &895628625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2190,6 +2195,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &963078203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2341,6 +2347,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &993361302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2503,6 +2510,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &1038581377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2771,6 +2779,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &1061414665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4193,6 +4202,7 @@ MonoBehaviour:
   moveCooldown: 0
   cooldown: 0
   LastPlayerToHit: 0
+  player1spawn: {fileID: 725927019}
 --- !u!65 &1773949621
 BoxCollider:
   m_ObjectHideFlags: 0
