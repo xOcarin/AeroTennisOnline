@@ -138,7 +138,7 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("oscore");
             }
-            print("made it2");
+            print("made it1");
            
         }
         else if(scorer == 2)
@@ -153,13 +153,11 @@ public class ScoreUpdater : NetworkBehaviour
 
             if (P2animator.gameObject.activeSelf)
             {
-                 P2animator.Play("Victroy");
+                print("P2Animator active");
+                P2animator.Play("Victroy");
             }
 
-           
-           
-
-
+            
             if (P1CANVASanimator.gameObject.activeSelf)
             {
                 P1CANVASanimator.Play("oscore");
