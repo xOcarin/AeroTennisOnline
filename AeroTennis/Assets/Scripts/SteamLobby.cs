@@ -72,7 +72,6 @@ public class SteamLobby : NetworkBehaviour
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         // Everyone
-        player1spawn.SetActive(true);
         HostButton.SetActive(false);
         CurrentLobbyID = callback.m_ulSteamIDLobby;
         LobbyNameText.gameObject.SetActive(true);

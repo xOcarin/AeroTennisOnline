@@ -12,13 +12,8 @@ namespace Mirror
         {
             NetworkManager.RegisterStartPosition(transform);
         }
-        
-        public void OnEnable()
-        {
-            NetworkManager.RegisterStartPosition(transform);
-        }
 
-        public void OnDisable()
+        public void OnDestroy()
         {
             NetworkManager.UnRegisterStartPosition(transform);
         }
