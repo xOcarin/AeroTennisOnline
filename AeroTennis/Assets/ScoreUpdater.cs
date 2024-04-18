@@ -102,7 +102,7 @@ public class ScoreUpdater : NetworkBehaviour
 
     private IEnumerator FreezePlayers(float duration, int scorer)
     {
-        Ball.transform.position = new Vector3(0, -10, -10);
+        //Ball.transform.position = new Vector3(0, -10, -10);
         Player1Body.velocity = Vector3.zero;
         Player2Body.velocity = Vector3.zero;
 
@@ -169,11 +169,11 @@ public class ScoreUpdater : NetworkBehaviour
                 P2CANVASanimator.Play("score");
             }
 
-            print("made it2");
+            //print("made it2");
         }
 
         
-        print("scorer: " + scorer);
+        //print("scorer: " + scorer);
         cooldown = true;
         yield return new WaitForSeconds(duration);
         cooldown = false;
@@ -207,11 +207,6 @@ public class ScoreUpdater : NetworkBehaviour
   
     }
     
-    bool IsPlayingAnimation(Animator animator, string animationName)
-    {
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        return stateInfo.IsName(animationName);
-    }
     
     
     
@@ -219,15 +214,15 @@ public class ScoreUpdater : NetworkBehaviour
     {
         if (other.CompareTag("BallZone") && gameObject.CompareTag("ScoreArea1"))
         {
-            //print("P1 SCORED");
+            print("P1 SCORED");
             StartCoroutine(FreezePlayers(3f, 1));
         }else if (other.CompareTag("BallZone") && gameObject.CompareTag("ScoreArea2"))
         {
-            //print("P2 SCORED");
+            print("P2 SCORED");
             StartCoroutine(FreezePlayers(3f, 2));
         }else if (other.CompareTag("BallZone") && gameObject.CompareTag("OUT"))
         {
-            //print("OUT");
+            print("OUT");
             StartCoroutine(FreezePlayers(3f, 3));
         }
         
