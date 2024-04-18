@@ -2669,6 +2669,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1079888866}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
+      propertyPath: player1spawn
+      value: 
+      objectReference: {fileID: 725927019}
+    - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: LobbyNameText
       value: 
       objectReference: {fileID: 1404072166}
