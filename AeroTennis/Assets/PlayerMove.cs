@@ -60,15 +60,18 @@ public class PlayerMove : NetworkBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isLeaveButtonActive = !isLeaveButtonActive;
             leaveButton.gameObject.SetActive(isLeaveButtonActive);
         }
+        */
     }
 
     public void GoToMainMenu()
     {
+        /*
         print("clicking");
         
         // Disconnect the client
@@ -88,6 +91,6 @@ public class PlayerMove : NetworkBehaviour
         
         // Load the MainMenu scene
         SceneManager.LoadScene("MainMenu");
-        
+        */
     }
 }

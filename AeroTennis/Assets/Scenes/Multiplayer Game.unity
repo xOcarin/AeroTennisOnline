@@ -2445,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2156201016784380945, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2533311791214610280, guid: 4eba4bfb06ee5a646a0b3861d3138531, type: 3}
       propertyPath: ballP
@@ -2811,7 +2811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1289346451
 MonoBehaviour:
   m_ObjectHideFlags: 0

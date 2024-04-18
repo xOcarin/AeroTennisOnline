@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2237272254678532585, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
+      propertyPath: playerCanvas
+      value: 
+      objectReference: {fileID: 7852738108409154037}
     - target: {fileID: 2240943115216779543, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: field of view
       value: 75

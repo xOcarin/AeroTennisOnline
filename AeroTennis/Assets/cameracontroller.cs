@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 public class cameracontroller : NetworkBehaviour
 {
     public GameObject cameraHolder;
+    public GameObject playerCanvas;
     public Vector3 offset;
 
 
@@ -17,11 +18,16 @@ public class cameracontroller : NetworkBehaviour
         if (isLocalPlayer)
         {
             cameraHolder.SetActive(true);
+            playerCanvas.SetActive(true);
         }
         if (!isLocalPlayer)
         {
             cameraHolder.SetActive(false);
+            playerCanvas.SetActive(false);
         }
+        
+        
+        
         
     }
 
@@ -34,6 +40,7 @@ public class cameracontroller : NetworkBehaviour
         if (!isLocalPlayer)
         {
             cameraHolder.SetActive(false);
+            playerCanvas.SetActive(false);
         }
     }
 }

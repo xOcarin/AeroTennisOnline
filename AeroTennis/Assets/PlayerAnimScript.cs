@@ -21,7 +21,7 @@ public class PlayerAnimScript : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer) // Check if this is not the local player
+        if (!isLocalPlayer)
             return;
 
         if (Input.GetKey(KeyCode.D))
@@ -51,8 +51,6 @@ public class PlayerAnimScript : NetworkBehaviour
     
     public void PlayAnimation(string animation)
     {
-        if (!isLocalPlayer) 
-            return;
         animator.Play(animation);
         StartCoroutine(ReturnToDefaultState(animation));
     }

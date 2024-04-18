@@ -17,8 +17,8 @@ public class ScoreUpdater : NetworkBehaviour
     private MonoBehaviour P2Movement;
     private Animator P1animator; 
     private Animator P2animator;
-    private Animator P1CANVASanimator; 
-    private Animator P2CANVASanimator;
+    public Animator P1CANVASanimator; 
+    public Animator P2CANVASanimator;
     private string ballMode;
     
     private Rigidbody ballZoneRigidbody;
@@ -64,7 +64,7 @@ public class ScoreUpdater : NetworkBehaviour
                 P2Movement = Player2.GetComponent<PlayerMove>();
                 P1animator = Player1.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
                 P2animator = Player2.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
-                P1CANVASanimator = Player2.transform.GetChild(2).GetComponent<Animator>();
+                P1CANVASanimator = Player1.transform.GetChild(2).GetComponent<Animator>();
                 P2CANVASanimator = Player2.transform.GetChild(2).GetComponent<Animator>();
                 Player1Body = Player1.GetComponent<Rigidbody>();
                 Player2Body = Player2.GetComponent<Rigidbody>();
@@ -121,15 +121,33 @@ public class ScoreUpdater : NetworkBehaviour
         {
             P1animator.Play("Victroy");
             P2animator.Play("Loss");
-            P1CANVASanimator.Play("score");
-            P2CANVASanimator.Play("canvasidle");
+            if (P1CANVASanimator.gameObject.activeSelf && !IsPlayingAnimation(P1CANVASanimator, "score"))
+            {
+                P1CANVASanimator.Play("score");
+            }
+            if (P2CANVASanimator.gameObject.activeSelf && !IsPlayingAnimation(P2CANVASanimator, "oscore"))
+            {
+                P2CANVASanimator.Play("oscore");
+            }
+           
         }
         else if(scorer == 2)
         {
             P2animator.Play("Victroy");
             P1animator.Play("Loss");
-            P2CANVASanimator.Play("score");
-            P1CANVASanimator.Play("canvasidle");
+
+
+            if (P1CANVASanimator.gameObject.activeSelf)
+            {
+                P1CANVASanimator.Play("oscore");
+            }
+
+            if (P2CANVASanimator.gameObject.activeSelf)
+            {
+                P2CANVASanimator.Play("score");
+            }
+            
+            
         }
 
         cooldown = true;
@@ -153,6 +171,12 @@ public class ScoreUpdater : NetworkBehaviour
   
     }
     
+    bool IsPlayingAnimation(Animator animator, string animationName)
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsName(animationName);
+    }
+    
     
     
     private void OnTriggerEnter(Collider other)
@@ -165,7 +189,7 @@ public class ScoreUpdater : NetworkBehaviour
         {
             //print("P2 SCORED");
             StartCoroutine(FreezePlayers(3f, 2));
-        }else if (other.CompareTag("BallZone") && gameObject.CompareTag("out"))
+        }else if (other.CompareTag("BallZone") && gameObject.CompareTag("OUT"))
         {
             //print("OUT");
             StartCoroutine(FreezePlayers(3f, 3));
