@@ -20,7 +20,8 @@ public class SteamLobby : NetworkBehaviour
     // Game objects
     public GameObject HostButton;
     public Text LobbyNameText;
-    public GameObject LeaveButton; // Assuming this button is for leaving the lobby
+    public GameObject LeaveButton;
+    public GameObject MainButton;
 
     private void Start()
     {
@@ -40,9 +41,11 @@ public class SteamLobby : NetworkBehaviour
 
     public void HostLobby()
     {
+        print("host clicked");
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
         HostButton.SetActive(false);
         LeaveButton.SetActive(true);
+        MainButton.SetActive(false);
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -88,16 +91,22 @@ public class SteamLobby : NetworkBehaviour
         HostButton.SetActive(true);
         LobbyNameText.gameObject.SetActive(false);
         LeaveButton.SetActive(false);
+        MainButton.SetActive(true);
         
         
         // Clear any cached lobby ID
         CurrentLobbyID = 0;
         
-        
         manager.StopClient();
-        manager.StopHost();
+        manager.StopServer();
+        
     }
-    
+
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
     
 }
