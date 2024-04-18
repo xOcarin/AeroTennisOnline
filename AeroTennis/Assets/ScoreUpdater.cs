@@ -102,6 +102,7 @@ public class ScoreUpdater : NetworkBehaviour
 
     private IEnumerator FreezePlayers(float duration, int scorer)
     {
+        Ball.transform.position = new Vector3(0, -10, -10);
         Player1Body.velocity = Vector3.zero;
         Player2Body.velocity = Vector3.zero;
 
@@ -171,6 +172,8 @@ public class ScoreUpdater : NetworkBehaviour
             print("made it2");
         }
 
+        
+        print("scorer: " + scorer);
         cooldown = true;
         yield return new WaitForSeconds(duration);
         cooldown = false;

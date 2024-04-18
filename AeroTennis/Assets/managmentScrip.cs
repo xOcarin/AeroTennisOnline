@@ -25,11 +25,25 @@ public class managmentScrip : NetworkBehaviour
 
         if (playerID == PlayerID.Player1)
         {
-            
+            if (player2Score < 30)
+            {
+                player1Score += 15;
+            }
+            else
+            {
+                player1Score += 10;
+            }
         }
         else if (playerID == PlayerID.Player2)
         {
-            player1Score++;
+            if (player2Score < 30)
+            {
+                player2Score += 15; 
+            }
+            else
+            {
+                player2Score += 10;
+            }
         }
     }
 

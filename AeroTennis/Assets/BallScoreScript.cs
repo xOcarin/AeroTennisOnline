@@ -22,13 +22,11 @@ public class BallScoreScript : MonoBehaviour
         {
             gameManager.ScorePoint(PlayerID.Player2);
             audioManager.PlaySound("splash", .5f);
-            transform.position = new Vector3(0, -10, 0);
         }
         else if (other.CompareTag("ScoreArea1"))
         {
             gameManager.ScorePoint(PlayerID.Player1);
             audioManager.PlaySound("splash", .5f);
-            transform.position = new Vector3(0, -10, 0);
         }
     }
 
