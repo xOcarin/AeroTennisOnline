@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class PlayerPrefabInitializer : MonoBehaviour
 {
@@ -65,10 +67,23 @@ public class PlayerPrefabInitializer : MonoBehaviour
             dashtext.text  = "Player 2 wins!!!!!";
             player1ScoreText.text = "";
             player2ScoreText.text = "";
+            
+            
         }
         
         
         
         
     }
+
+    private IEnumerator resetGame()
+    {
+        yield return new WaitForSeconds(5f);
+        dashtext.text  = "-";
+        gameManager.player1Score = 0;
+        gameManager.player2Score = 0;
+        player1ScoreText.text = gameManager.player1Score.ToString();
+        player2ScoreText.text = gameManager.player2Score.ToString();
+    }
+    
 }
