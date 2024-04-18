@@ -207,6 +207,7 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("LOSE");
             }
+            StartCoroutine(resetballPos());
         }else if (DASHTEXT.text == "Player 2 wins!!!!!")
         {
             if (P1CANVASanimator.gameObject.activeSelf)
@@ -217,6 +218,7 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P1CANVASanimator.Play("LOSE");
             }
+            StartCoroutine(resetballPos());
         }else
         {
             if (P1CANVASanimator.gameObject.activeSelf)
@@ -246,9 +248,13 @@ public class ScoreUpdater : NetworkBehaviour
         
   
     }
-    
-    
-    
+
+
+    IEnumerator resetballPos()
+    {
+        yield return new WaitForSeconds(5f);
+        Ball.transform.position = new Vector3(0, 1, 10);
+    }
     
     private void OnTriggerEnter(Collider other)
     {
