@@ -14,6 +14,8 @@ public class managmentScrip : NetworkBehaviour
     
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
+   // public TextMeshProUGUI dashtext;
+    
 
     // Called when a player scores a point
     public void ScorePoint(PlayerID playerID)
@@ -23,11 +25,25 @@ public class managmentScrip : NetworkBehaviour
 
         if (playerID == PlayerID.Player1)
         {
-            player1Score++;
+            if (player2Score < 30)
+            {
+                player1Score += 15;
+            }
+            else
+            {
+                player1Score += 10;
+            }
         }
         else if (playerID == PlayerID.Player2)
         {
-            player2Score++;
+            if (player2Score < 30)
+            {
+                player2Score += 15; 
+            }
+            else
+            {
+                player2Score += 10;
+            }
         }
     }
 
@@ -35,12 +51,27 @@ public class managmentScrip : NetworkBehaviour
     private void OnPlayer1ScoreChanged(int oldValue, int newValue)
     {
         player1ScoreText.text = newValue.ToString();
+        /*
+        if (player1Score == 40 && player2Score == 40)
+        {
+            dashtext.text = "Duece!";
+            player1ScoreText.text = "";
+            player2ScoreText.text = "";
+        }
+        */
     }
 
     // Update player 2 score UI
     private void OnPlayer2ScoreChanged(int oldValue, int newValue)
     {
         player2ScoreText.text = newValue.ToString();
+        /*
+        if (player1Score == 40 && player2Score == 40)
+        {
+            dashtext.text = "Duece!";
+            player1ScoreText.text = "";
+            player2ScoreText.text = "";
+        } */
     }
 }
 

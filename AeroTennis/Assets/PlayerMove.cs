@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : NetworkBehaviour
 {
@@ -19,6 +21,11 @@ public class PlayerMove : NetworkBehaviour
     public GameObject ball;
     public Vector3 spawnPosition = new Vector3(0f, .25f, 0f);
     
+    public Button leaveButton;
+    private bool isLeaveButtonActive = false;
+    
+    
+    //old
     [Command]
     public void CmdSpawnBall()
     {
@@ -46,5 +53,41 @@ public class PlayerMove : NetworkBehaviour
             Vector3 inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
             Vector3 localInputDirection = playerCamera.transform.TransformDirection(inputDirection);
             rigidbody3d.velocity = localInputDirection * speed * Time.fixedDeltaTime;
+            
+            
+            
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isLeaveButtonActive = !isLeaveButtonActive;
+            leaveButton.gameObject.SetActive(isLeaveButtonActive);
+        }
+    }
+
+    public void GoToMainMenu()
+    {
+        print("clicking");
+        
+        // Disconnect the client
+        if (NetworkClient.isConnected)
+        {
+            // If the client is also the server host, stop the server
+            if (NetworkServer.active)
+            {
+                SceneManager.LoadScene("MainMenu");
+                NetworkServer.DisconnectAll();
+                NetworkServer.Shutdown();
+            }
+            
+            // Disconnect the client
+            NetworkClient.Disconnect();
+        }
+        
+        // Load the MainMenu scene
+        SceneManager.LoadScene("MainMenu");
+        
     }
 }

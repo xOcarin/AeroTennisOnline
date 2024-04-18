@@ -17,6 +17,8 @@ public class ScoreUpdater : NetworkBehaviour
     private MonoBehaviour P2Movement;
     private Animator P1animator; 
     private Animator P2animator;
+    private Animator P1CANVASanimator; 
+    private Animator P2CANVASanimator;
     private string ballMode;
     
     private Rigidbody ballZoneRigidbody;
@@ -62,6 +64,8 @@ public class ScoreUpdater : NetworkBehaviour
                 P2Movement = Player2.GetComponent<PlayerMove>();
                 P1animator = Player1.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
                 P2animator = Player2.transform.GetChild(0).GetChild(0).GetComponent<Animator>();
+                P1CANVASanimator = Player2.transform.GetChild(2).GetComponent<Animator>();
+                P2CANVASanimator = Player2.transform.GetChild(2).GetComponent<Animator>();
                 Player1Body = Player1.GetComponent<Rigidbody>();
                 Player2Body = Player2.GetComponent<Rigidbody>();
                 PlayersAssigned = true;
@@ -117,11 +121,15 @@ public class ScoreUpdater : NetworkBehaviour
         {
             P1animator.Play("Victroy");
             P2animator.Play("Loss");
+            P1CANVASanimator.Play("score");
+            P2CANVASanimator.Play("canvasidle");
         }
         else if(scorer == 2)
         {
             P2animator.Play("Victroy");
             P1animator.Play("Loss");
+            P2CANVASanimator.Play("score");
+            P1CANVASanimator.Play("canvasidle");
         }
 
         cooldown = true;

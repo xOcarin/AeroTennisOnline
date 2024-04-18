@@ -9,6 +9,7 @@ public class PlayerPrefabInitializer : MonoBehaviour
     // Reference to the Text Mesh Pro Text elements for both player scores
     public TextMeshProUGUI player1ScoreText;
     public TextMeshProUGUI player2ScoreText;
+    //public TextMeshProUGUI dashtext;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class PlayerPrefabInitializer : MonoBehaviour
         
         gameManager.player1ScoreText = player1ScoreText;
         gameManager.player2ScoreText = player2ScoreText;
+        //gameManager.player2ScoreText = dashtext;
     }
 
     private void Update()
