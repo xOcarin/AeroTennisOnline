@@ -22,6 +22,7 @@ public class SteamLobby : NetworkBehaviour
     public Text LobbyNameText;
     public GameObject LeaveButton;
     public GameObject MainButton;
+    public GameObject player1spawn;
 
     private void Start()
     {
@@ -71,6 +72,7 @@ public class SteamLobby : NetworkBehaviour
     private void OnLobbyEntered(LobbyEnter_t callback)
     {
         // Everyone
+        player1spawn.SetActive(true);
         HostButton.SetActive(false);
         CurrentLobbyID = callback.m_ulSteamIDLobby;
         LobbyNameText.gameObject.SetActive(true);

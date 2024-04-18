@@ -60,6 +60,7 @@ public class ScoreUpdater : NetworkBehaviour
         
         if (PlayersAssigned == false)
         {
+            player1spawn.SetActive(true);
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             if (players.Length > 1)
             {
@@ -78,7 +79,7 @@ public class ScoreUpdater : NetworkBehaviour
                 ballZoneRigidbody.velocity = Vector3.zero;
                 ballZoneRigidbody.angularVelocity = Vector3.zero;
                 Ball.transform.position = new Vector3(0, 1, 10);
-                Destroy(player1spawn);
+                player1spawn.SetActive(false);
 
             }
         }
