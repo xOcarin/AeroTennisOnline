@@ -176,10 +176,19 @@ public class ScoreUpdater : NetworkBehaviour
         cooldown = true;
         yield return new WaitForSeconds(duration);
         cooldown = false;
+
+        if (P1CANVASanimator.gameObject.activeSelf)
+        {
+            P1CANVASanimator.Play("canvasidle");
+        }
+
+        if (P2CANVASanimator.gameObject.activeSelf)
+        {
+            P2CANVASanimator.Play("canvasidle");
+        }
+
         
         
-        P1CANVASanimator.Play("canvasidle");
-        P2CANVASanimator.Play("canvasidle");
         if (scorer == 1)
         {
             ballZoneRigidbody.velocity = Vector3.zero;
