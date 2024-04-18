@@ -34,16 +34,12 @@ public class managmentScrip : NetworkBehaviour
     // Update player 1 score UI
     private void OnPlayer1ScoreChanged(int oldValue, int newValue)
     {
-        print(player1ScoreText);
-        print(player2ScoreText);
         player1ScoreText.text = newValue.ToString();
     }
 
     // Update player 2 score UI
     private void OnPlayer2ScoreChanged(int oldValue, int newValue)
     {
-        print(player1ScoreText);
-        print(player2ScoreText);
         player2ScoreText.text = newValue.ToString();
     }
 }

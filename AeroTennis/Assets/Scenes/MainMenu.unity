@@ -1707,7 +1707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a91f842869def948b7cc28f1c03be5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Target Court
+  sceneName: TARGET
 --- !u!4 &528920317
 Transform:
   m_ObjectHideFlags: 0

@@ -133,13 +133,14 @@ public class ScoreUpdater : NetworkBehaviour
             ballZoneRigidbody.velocity = Vector3.zero;
             ballZoneRigidbody.angularVelocity = Vector3.zero;
             Ball.transform.position = new Vector3(0, 1, -10);
-            
+            audioManager.PlaySound("respawn", .5f);
         }
         else if (scorer == 2)
         {
             ballZoneRigidbody.velocity = Vector3.zero;
             ballZoneRigidbody.angularVelocity = Vector3.zero;
             Ball.transform.position = new Vector3(0, 1, 10);
+            audioManager.PlaySound("respawn", .5f);
         }
   
     }

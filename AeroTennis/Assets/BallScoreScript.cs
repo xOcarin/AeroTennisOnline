@@ -1,9 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class BallScoreScript : MonoBehaviour
 {
     private managmentScrip gameManager;
     private AudioManager2 audioManager;
+
+
+    private bool cooldown = false;
     private void Start()
     {
         // Get a reference to the TennisGameManager component
@@ -14,41 +18,29 @@ public class BallScoreScript : MonoBehaviour
     // This method is called when the ball collides with a goal collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ScoreArea2"))
+        if (other.CompareTag("ScoreArea2") && !cooldown)
         {
-            // Score a point for player 2
             gameManager.ScorePoint(PlayerID.Player2);
+            audioManager.PlaySound("splash", .5f);
             transform.position = new Vector3(0, -10, 0);
         }
         else if (other.CompareTag("ScoreArea1"))
         {
-            // Score a point for player 1
             gameManager.ScorePoint(PlayerID.Player1);
+            audioManager.PlaySound("splash", .5f);
             transform.position = new Vector3(0, -10, 0);
         }
     }
+
+
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ground"))
         {
-            Vector3 location = GetLoc();
-            if (location.z > 14 || location.z < -14)
-            {
-                audioManager.PlaySound("bumb");
-            }
-            else
-            {
-                audioManager.PlaySound("bounce");
-            }
-            
+                audioManager.PlaySound("hitsand", .5f);
         }
     }
-
-
-    public Vector3 GetLoc()
-    {
-        return this.transform.position;
-    }
+    
  
 }

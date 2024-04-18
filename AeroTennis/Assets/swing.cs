@@ -67,6 +67,7 @@ public class swing : NetworkBehaviour
                 }
                 if (isInRange)
                 {
+                    soundPlayer.PlaySound(sound);
                     LaunchBall(shotDir);
                 }
                 else
@@ -99,6 +100,7 @@ public class swing : NetworkBehaviour
                 }
                 if (isInRange)
                 {
+                    soundPlayer.PlaySound(sound);
                     LaunchBall(shotDir);
                 }else
                 {
@@ -138,7 +140,6 @@ public class swing : NetworkBehaviour
     [Command]
     private void LaunchBall(float curve)
     {
-        soundPlayer.PlaySound(sound);
         GameObject ball = GameObject.FindGameObjectWithTag("BallZone");
         BallHitLoc = ball.transform.position;
         if (ball != null)

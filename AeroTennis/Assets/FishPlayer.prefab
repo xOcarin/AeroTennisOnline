@@ -715,12 +715,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2661967425753294627, guid: 313a379f29cec0c4e9c7a60b627ffdb7, type: 3}
       propertyPath: soundClips.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2661967425753294627, guid: 313a379f29cec0c4e9c7a60b627ffdb7, type: 3}
       propertyPath: soundClips.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 195b6de9447aa6842980ee6f9166ec22, type: 3}
+    - target: {fileID: 2661967425753294627, guid: 313a379f29cec0c4e9c7a60b627ffdb7, type: 3}
+      propertyPath: soundClips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 80eca013071b08244aa660673ba8a240, type: 3}
+    - target: {fileID: 2661967425753294627, guid: 313a379f29cec0c4e9c7a60b627ffdb7, type: 3}
+      propertyPath: soundClips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c9f0b75196e53844bd1403a3e29a855, type: 3}
     - target: {fileID: 7059927079713338709, guid: 313a379f29cec0c4e9c7a60b627ffdb7, type: 3}
       propertyPath: m_Name
       value: Audio Source

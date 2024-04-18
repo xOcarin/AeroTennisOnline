@@ -29,13 +29,13 @@ public class AudioManager2 : MonoBehaviour
     }
 
     // Play a sound by name
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, float volume)
     {
         // Check if the dictionary contains the specified sound name
         if (soundDictionary.ContainsKey(soundName))
         {
             // Play the corresponding AudioClip
-            audioSource.PlayOneShot(soundDictionary[soundName]);
+            audioSource.PlayOneShot(soundDictionary[soundName], volume);
         }
         else
         {

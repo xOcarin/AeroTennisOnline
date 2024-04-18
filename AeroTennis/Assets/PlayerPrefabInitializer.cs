@@ -19,8 +19,7 @@ public class PlayerPrefabInitializer : MonoBehaviour
             Debug.LogError("TennisGameManager reference is missing!");
             return;
         }
-
-        // Assign the Text Mesh Pro Text references
+        
         gameManager.player1ScoreText = player1ScoreText;
         gameManager.player2ScoreText = player2ScoreText;
     }
