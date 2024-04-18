@@ -89,8 +89,13 @@ public class SteamLobby : NetworkBehaviour
         LobbyNameText.gameObject.SetActive(false);
         LeaveButton.SetActive(false);
         
+        
         // Clear any cached lobby ID
         CurrentLobbyID = 0;
+        
+        
+        manager.StopClient();
+        manager.StopHost();
     }
     
     
