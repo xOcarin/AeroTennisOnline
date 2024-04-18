@@ -60,6 +60,7 @@ public class PlayerPrefabInitializer : MonoBehaviour
             dashtext.text  = "Player 1 wins!!!!!";
             player1ScoreText.text = "";
             player2ScoreText.text = "";
+            StartCoroutine(resetGame());
         }
         
         if (gameManager.player2Score == 60)
@@ -67,8 +68,7 @@ public class PlayerPrefabInitializer : MonoBehaviour
             dashtext.text  = "Player 2 wins!!!!!";
             player1ScoreText.text = "";
             player2ScoreText.text = "";
-            
-            
+            StartCoroutine(resetGame());
         }
         
         
