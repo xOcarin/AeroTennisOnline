@@ -17,6 +17,8 @@ public class ScoreUpdater : NetworkBehaviour
     private MonoBehaviour P2Movement;
     private Animator P1animator; 
     private Animator P2animator;
+    public TextMeshProUGUI P1Score; 
+    public TextMeshProUGUI P2Score; 
     public Animator P1CANVASanimator; 
     public Animator P2CANVASanimator;
     private string ballMode;
@@ -103,11 +105,17 @@ public class ScoreUpdater : NetworkBehaviour
     private IEnumerator FreezePlayers(float duration, int scorer)
     {
         //Ball.transform.position = new Vector3(0, -10, -10);
+        
+        
+        
         Player1Body.velocity = Vector3.zero;
         Player2Body.velocity = Vector3.zero;
 
         P1CurrPos = Player1.transform.position;
         P2CurrPos = Player2.transform.position;
+        
+        
+        
 
         if(scorer == 3 && LastPlayerToHit == 1)
         {
@@ -139,7 +147,6 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("oscore");
             }
-            print("made it1");
            
         }
         else if(scorer == 2)
@@ -154,7 +161,6 @@ public class ScoreUpdater : NetworkBehaviour
 
             if (P2animator.gameObject.activeSelf)
             {
-                print("P2Animator active");
                 P2animator.Play("Victroy");
             }
 
@@ -168,15 +174,20 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("score");
             }
-
-            //print("made it2");
         }
-
         
-        //print("scorer: " + scorer);
+        
+        
         cooldown = true;
         yield return new WaitForSeconds(duration);
         cooldown = false;
+        
+        P1Score = Player1.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
+        P2Score = Player1.transform.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+        
+        print(P1Score.text);
+        print(P2Score.text);
+        
 
         if (P1CANVASanimator.gameObject.activeSelf)
         {
@@ -214,15 +225,15 @@ public class ScoreUpdater : NetworkBehaviour
     {
         if (other.CompareTag("BallZone") && gameObject.CompareTag("ScoreArea1"))
         {
-            print("P1 SCORED");
+            //print("P1 SCORED");
             StartCoroutine(FreezePlayers(3f, 1));
         }else if (other.CompareTag("BallZone") && gameObject.CompareTag("ScoreArea2"))
         {
-            print("P2 SCORED");
+            //print("P2 SCORED");
             StartCoroutine(FreezePlayers(3f, 2));
         }else if (other.CompareTag("BallZone") && gameObject.CompareTag("OUT"))
         {
-            print("OUT");
+            //print("OUT");
             StartCoroutine(FreezePlayers(3f, 3));
         }
         

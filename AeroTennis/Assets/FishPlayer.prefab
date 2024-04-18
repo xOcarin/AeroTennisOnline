@@ -1390,6 +1390,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   player1ScoreText: {fileID: 6645988570484250114}
   player2ScoreText: {fileID: 4934691464293277304}
+  dashtext: {fileID: 731333585145498287}
 --- !u!1001 &6070188171971210810
 PrefabInstance:
   m_ObjectHideFlags: 0

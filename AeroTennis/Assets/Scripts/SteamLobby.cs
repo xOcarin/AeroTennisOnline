@@ -22,7 +22,7 @@ public class SteamLobby : NetworkBehaviour
     public GameObject HostButton;
     public Text LobbyNameText;
     
-    public GameObject StartButton;
+    //public GameObject StartButton;
     
     //ball stuff
     public GameObject ballP; 
@@ -50,7 +50,7 @@ public class SteamLobby : NetworkBehaviour
     {
         GameObject ball = Instantiate(ballP);
         NetworkServer.Spawn(ball);
-        StartButton.SetActive(false);
+        //StartButton.SetActive(false);
     }
 
 
