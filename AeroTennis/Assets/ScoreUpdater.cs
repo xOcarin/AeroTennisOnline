@@ -19,6 +19,7 @@ public class ScoreUpdater : NetworkBehaviour
     private Animator P2animator;
     public TextMeshProUGUI P1Score; 
     public TextMeshProUGUI P2Score; 
+    public TextMeshProUGUI DASHTEXT; 
     public Animator P1CANVASanimator; 
     public Animator P2CANVASanimator;
     private string ballMode;
@@ -184,37 +185,61 @@ public class ScoreUpdater : NetworkBehaviour
         
         P1Score = Player1.transform.GetChild(2).GetChild(0).GetComponent<TextMeshProUGUI>();
         P2Score = Player1.transform.GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+        DASHTEXT = Player1.transform.GetChild(2).GetChild(2).GetComponent<TextMeshProUGUI>();
         
         print(P1Score.text);
         print(P2Score.text);
-        
 
-        if (P1CANVASanimator.gameObject.activeSelf)
-        {
-            P1CANVASanimator.Play("canvasidle");
-        }
 
-        if (P2CANVASanimator.gameObject.activeSelf)
+        if (DASHTEXT.text == "Player 1 wins!!!!!")
         {
-            P2CANVASanimator.Play("canvasidle");
-        }
 
-        
-        
-        if (scorer == 1)
+            if (P1CANVASanimator.gameObject.activeSelf)
+            {
+                P1CANVASanimator.Play("WIN");
+            }
+
+            if (P2CANVASanimator.gameObject.activeSelf)
+            {
+                P2CANVASanimator.Play("LOSE");
+            }
+        }else if (DASHTEXT.text == "Player 2 wins!!!!!")
         {
-            ballZoneRigidbody.velocity = Vector3.zero;
-            ballZoneRigidbody.angularVelocity = Vector3.zero;
-            Ball.transform.position = new Vector3(0, 1, -10);
-            audioManager.PlaySound("respawn", .5f);
-        }
-        else if (scorer == 2)
+            if (P1CANVASanimator.gameObject.activeSelf)
+            {
+                P2CANVASanimator.Play("WIN");
+            }
+            if (P2CANVASanimator.gameObject.activeSelf)
+            {
+                P1CANVASanimator.Play("LOSE");
+            }
+        }else
         {
-            ballZoneRigidbody.velocity = Vector3.zero;
-            ballZoneRigidbody.angularVelocity = Vector3.zero;
-            Ball.transform.position = new Vector3(0, 1, 10);
-            audioManager.PlaySound("respawn", .5f);
+            if (P1CANVASanimator.gameObject.activeSelf)
+            {
+                P1CANVASanimator.Play("canvasidle");
+            }
+
+            if (P2CANVASanimator.gameObject.activeSelf)
+            {
+                P2CANVASanimator.Play("canvasidle");
+            }
+            if (scorer == 1)
+            {
+                ballZoneRigidbody.velocity = Vector3.zero;
+                ballZoneRigidbody.angularVelocity = Vector3.zero;
+                Ball.transform.position = new Vector3(0, 1, -10);
+                audioManager.PlaySound("respawn", .5f);
+            }
+            else if (scorer == 2)
+            {
+                ballZoneRigidbody.velocity = Vector3.zero;
+                ballZoneRigidbody.angularVelocity = Vector3.zero;
+                Ball.transform.position = new Vector3(0, 1, 10);
+                audioManager.PlaySound("respawn", .5f);
+            }
         }
+        
   
     }
     

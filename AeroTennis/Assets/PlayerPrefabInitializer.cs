@@ -38,12 +38,12 @@ public class PlayerPrefabInitializer : MonoBehaviour
             player2ScoreText.text = "";
         } else if (gameManager.player1Score == 50 && gameManager.player2Score == 40)
         {
-            player1ScoreText.text = "Adv";
+            player1ScoreText.text = "A";
             dashtext.text  = "-";
             player2ScoreText.text = gameManager.player2Score.ToString();
         } else if (gameManager.player2Score == 50 && gameManager.player1Score == 40)
         {
-            player2ScoreText.text = "Adv";
+            player2ScoreText.text = "A";
             dashtext.text  = "-";
             player1ScoreText.text = gameManager.player1Score.ToString();
         } else

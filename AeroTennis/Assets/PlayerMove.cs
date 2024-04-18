@@ -22,6 +22,7 @@ public class PlayerMove : NetworkBehaviour
     public Vector3 spawnPosition = new Vector3(0f, .25f, 0f);
     
     public Button leaveButton;
+    public Button host;
     private bool isLeaveButtonActive = false;
     
     
@@ -58,17 +59,46 @@ public class PlayerMove : NetworkBehaviour
             
     }
 
-    private void Update()
+    /*private void Update()
     {
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isLeaveButtonActive = !isLeaveButtonActive;
             leaveButton.gameObject.SetActive(isLeaveButtonActive);
         }
-        */
+        
+    }
+*/
+
+    void Update()
+    {
+        // Check if the server should be shut down
+        if (isServer && ShouldShutDownServer())
+        {
+            ShutDownServer();
+        }
     }
 
+    bool ShouldShutDownServer()
+    {
+        // Implement your logic here to determine when the server should be shut down
+        // For example, you might check if a certain key is pressed or if a condition is met
+        // This function should return true when the condition to shut down the server is met
+        return Input.GetKeyDown(KeyCode.J);
+    }
+
+    void ShutDownServer()
+    {
+        // Call the NetworkManager's StopServer function to shut down the server
+        NetworkManager.singleton.StopServer();
+    }
+    
+    
+    
+    
+    
+    
     public void GoToMainMenu()
     {
         /*
