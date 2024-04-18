@@ -119,18 +119,45 @@ public class ScoreUpdater : NetworkBehaviour
         
         if (scorer == 1)
         {
-            P1animator.Play("Victroy");
-            P2animator.Play("Loss");
-           
-                P1CANVASanimator.Play("score");
-                P2CANVASanimator.Play("oscore");
+
+            if (P1animator.gameObject.activeSelf)
+            {
+                P1animator.Play("Victroy");
+            }
+
+            if (P2animator.gameObject.activeSelf)
+            {
+                P2animator.Play("Loss");
+            }
             
+            if (P1CANVASanimator.gameObject.activeSelf)
+            {
+                P1CANVASanimator.Play("score");
+            }
+            if (P2CANVASanimator.gameObject.activeSelf)
+            {
+                P2CANVASanimator.Play("oscore");
+            }
+            print("made it2");
            
         }
         else if(scorer == 2)
         {
-            P2animator.Play("Victroy");
-            P1animator.Play("Loss");
+
+
+            if (P1animator.gameObject.activeSelf)
+            {
+                P1animator.Play("Loss");
+            }
+
+
+            if (P2animator.gameObject.activeSelf)
+            {
+                 P2animator.Play("Victroy");
+            }
+
+           
+           
 
 
             if (P1CANVASanimator.gameObject.activeSelf)
@@ -142,8 +169,8 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("score");
             }
-            
-            
+
+            print("made it2");
         }
 
         cooldown = true;
