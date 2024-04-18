@@ -105,6 +105,8 @@ public class SteamLobby : NetworkBehaviour
 
     public void goToMainMenu()
     {
+        manager.StopClient();
+        manager.StopServer();
         SceneManager.LoadScene("MainMenu");
     }
     
