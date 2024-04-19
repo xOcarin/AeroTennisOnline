@@ -82,7 +82,7 @@ public class PlayerMove : NetworkBehaviour
         // Implement your logic here to determine when the server should be shut down
         // For example, you might check if a certain key is pressed or if a condition is met
         // This function should return true when the condition to shut down the server is met
-        return Input.GetKeyDown(KeyCode.J);
+        return false;
     }
 
     void ShutDownServer()
