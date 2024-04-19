@@ -253,6 +253,8 @@ public class ScoreUpdater : NetworkBehaviour
     IEnumerator resetballPos()
     {
         yield return new WaitForSeconds(5f);
+        ballZoneRigidbody.velocity = Vector3.zero;
+        ballZoneRigidbody.angularVelocity = Vector3.zero;
         Ball.transform.position = new Vector3(0, 1, 10);
     }
     
