@@ -119,7 +119,7 @@ public class ScoreUpdater : NetworkBehaviour
         P1CurrPos = Player1.transform.position;
         P2CurrPos = Player2.transform.position;
         
-        audioManager.PlaySound("score", 1f);
+        audioManager.PlaySound("splash", 1f);
         audioManager.PlaySound("clap", 1f);
         
 
