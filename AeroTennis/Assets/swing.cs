@@ -109,8 +109,17 @@ public class swing : NetworkBehaviour
             }
             StartCoroutine(StartCooldown());
         }
-
+        
         lastMousePos = currentMousePos;
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     IEnumerator StartCooldown()
@@ -119,6 +128,10 @@ public class swing : NetworkBehaviour
         yield return new WaitForSeconds(.5f);
         cooldownOver = true;
     }
+
+
+    
+
 
     private void OnTriggerEnter(Collider other)
     {

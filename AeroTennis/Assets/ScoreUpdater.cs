@@ -119,7 +119,8 @@ public class ScoreUpdater : NetworkBehaviour
         P1CurrPos = Player1.transform.position;
         P2CurrPos = Player2.transform.position;
         
-        
+        audioManager.PlaySound("score", .5f);
+        audioManager.PlaySound("clap", .5f);
         
 
         if(scorer == 3 && LastPlayerToHit == 1)
@@ -133,7 +134,7 @@ public class ScoreUpdater : NetworkBehaviour
         
         if (scorer == 1)
         {
-
+            
             if (P1animator.gameObject.activeSelf)
             {
                 P1animator.Play("Victroy");
@@ -167,6 +168,7 @@ public class ScoreUpdater : NetworkBehaviour
             if (P2animator.gameObject.activeSelf)
             {
                 P2animator.Play("Victroy");
+                
             }
 
             
@@ -207,6 +209,7 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P2CANVASanimator.Play("LOSE");
             }
+            audioManager.PlaySound("carp", .5f);
             StartCoroutine(resetballPos());
         }else if (DASHTEXT.text == "Player 2 wins!!!!!")
         {
@@ -218,6 +221,7 @@ public class ScoreUpdater : NetworkBehaviour
             {
                 P1CANVASanimator.Play("LOSE");
             }
+            audioManager.PlaySound("carp", .5f);
             StartCoroutine(resetballPos());
         }else
         {

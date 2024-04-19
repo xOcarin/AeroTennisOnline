@@ -30,7 +30,14 @@ public class AudioManager : NetworkBehaviour
         float volume = 1f;
         if (!isLocalPlayer)
         {
-            volume = .2f;
+            if (soundName == "victory" || soundName == "losesound")
+            {
+                volume = 0f;
+            }
+            else if(soundName == "swing")
+            {
+                volume = .2f;
+            }
         }
         
         AudioSource audioSource = GetComponent<AudioSource>();
