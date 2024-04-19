@@ -119,8 +119,8 @@ public class ScoreUpdater : NetworkBehaviour
         P1CurrPos = Player1.transform.position;
         P2CurrPos = Player2.transform.position;
         
-        audioManager.PlaySound("score", .5f);
-        audioManager.PlaySound("clap", .5f);
+        audioManager.PlaySound("score", 1f);
+        audioManager.PlaySound("clap", 1f);
         
 
         if(scorer == 3 && LastPlayerToHit == 1)
@@ -196,7 +196,12 @@ public class ScoreUpdater : NetworkBehaviour
         print(P1Score.text);
         print(P2Score.text);
 
-
+        if (DASHTEXT.text == "DUECE!")
+        {
+            audioManager.PlaySound("DUECE", 1f);
+        }
+        
+        
         if (DASHTEXT.text == "Player 1 wins!!!!!")
         {
 
