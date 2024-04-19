@@ -3013,7 +3013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817637446381128542, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: speed
-      value: 220
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1817637446381128542, guid: 95ad4af4e095db94297f9e5402c89c1b, type: 3}
       propertyPath: leaveButton

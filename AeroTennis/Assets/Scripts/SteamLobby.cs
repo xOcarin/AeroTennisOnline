@@ -23,13 +23,13 @@ public class SteamLobby : NetworkBehaviour
     public GameObject LeaveButton;
     public GameObject MainButton;
     public GameObject player1spawn;
+    public GameObject controlimg;
 
     private void Start()
     {
         if (!SteamManager.Initialized) return;
 
         manager = GetComponent<NetworkManager>();
-
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
         LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
@@ -37,16 +37,19 @@ public class SteamLobby : NetworkBehaviour
         // Initialize UI
         HostButton.SetActive(true);
         LobbyNameText.gameObject.SetActive(false);
-        LeaveButton.SetActive(false); // Ensure the LeaveButton is hidden at start
+        LeaveButton.SetActive(false); 
     }
 
     public void HostLobby()
     {
+        controlimg.SetActive(false);
         print("host clicked");
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, manager.maxConnections);
         HostButton.SetActive(false);
         LeaveButton.SetActive(true);
         MainButton.SetActive(false);
+        
+        
     }
 
     private void OnLobbyCreated(LobbyCreated_t callback)
@@ -75,6 +78,7 @@ public class SteamLobby : NetworkBehaviour
         HostButton.SetActive(false);
         CurrentLobbyID = callback.m_ulSteamIDLobby;
         LobbyNameText.gameObject.SetActive(true);
+        controlimg.SetActive(false);
         LobbyNameText.text = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), "name");
 
         // Clients
@@ -92,8 +96,9 @@ public class SteamLobby : NetworkBehaviour
         HostButton.SetActive(true);
         LobbyNameText.gameObject.SetActive(false);
         LeaveButton.SetActive(false);
+        Cursor.visible = true;
         MainButton.SetActive(true);
-        
+        controlimg.SetActive(true);
         
         // Clear any cached lobby ID
         CurrentLobbyID = 0;

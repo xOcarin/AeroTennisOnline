@@ -196,7 +196,7 @@ public class ScoreUpdater : NetworkBehaviour
         print(P1Score.text);
         print(P2Score.text);
 
-        if (DASHTEXT.text == "DUECE!")
+        if (DASHTEXT.text == "Duece!")
         {
             audioManager.PlaySound("DUECE", 1f);
         }

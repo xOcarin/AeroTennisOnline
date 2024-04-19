@@ -2752,7 +2752,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2090768583}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
         m_MethodName: QuitToDesktop
         m_Mode: 1
