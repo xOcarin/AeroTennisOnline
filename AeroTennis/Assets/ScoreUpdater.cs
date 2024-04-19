@@ -210,11 +210,11 @@ public class ScoreUpdater : NetworkBehaviour
             StartCoroutine(resetballPos());
         }else if (DASHTEXT.text == "Player 2 wins!!!!!")
         {
-            if (P1CANVASanimator.gameObject.activeSelf)
+            if (P2CANVASanimator.gameObject.activeSelf)
             {
                 P2CANVASanimator.Play("WIN");
             }
-            if (P2CANVASanimator.gameObject.activeSelf)
+            if (P1CANVASanimator.gameObject.activeSelf)
             {
                 P1CANVASanimator.Play("LOSE");
             }
