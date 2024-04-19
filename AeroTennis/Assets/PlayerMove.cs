@@ -59,17 +59,7 @@ public class PlayerMove : NetworkBehaviour
             
     }
 
-    /*private void Update()
-    {
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isLeaveButtonActive = !isLeaveButtonActive;
-            leaveButton.gameObject.SetActive(isLeaveButtonActive);
-        }
-        
-    }
-*/
+
 
     void Update()
     {
@@ -77,6 +67,13 @@ public class PlayerMove : NetworkBehaviour
         if (isServer && ShouldShutDownServer())
         {
             ShutDownServer();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isLeaveButtonActive = !isLeaveButtonActive;
+            Cursor.visible = isLeaveButtonActive;
+            
         }
     }
 

@@ -23,10 +23,14 @@ public class PlayerPrefabInitializer : MonoBehaviour
             return;
         }
         
+        
         gameManager.player1ScoreText = player1ScoreText;
         gameManager.player2ScoreText = player2ScoreText;
         gameManager.dashtext = dashtext;
-
+        gameManager.player1Score = 0;
+        gameManager.player2Score = 0;
+        player1ScoreText.text = gameManager.player1Score.ToString();
+        player2ScoreText.text = gameManager.player2Score.ToString();
 
         
     }
