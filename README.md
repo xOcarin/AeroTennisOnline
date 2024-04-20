@@ -1,7 +1,7 @@
 Normally, fish stay under the water, but occassionally they come to the surface for the ultimate competition:
 <br>
 
-### Fish Island Tennis
+# Fish Island Tennis
 
 <br>
 
@@ -9,12 +9,10 @@ Normally, fish stay under the water, but occassionally they come to the surface 
 
 <br>
 
-# Fish Island Tennis is an online sports game controlled with mouse **motion controls**!
-<br>
+## Fish Island Tennis is an online sports game controlled with mouse **motion controls**!
 <br>
 
-# The game has an original soundtrack with the main theme coming to spotify soon!
-<br>
+## The game has an original soundtrack with the main theme coming to spotify soon!
 <br>
 
 ## Download and play with your friends over steam!
