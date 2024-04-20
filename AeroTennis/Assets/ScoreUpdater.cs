@@ -91,10 +91,10 @@ public class ScoreUpdater : NetworkBehaviour
         }
 
 
-        if (Ball.transform.position.z > 8)
+        if (Ball.transform.position.z > 8 && (Ball.transform.position.x < 10 && Ball.transform.position.x > -10) )
         {
             LastPlayerToHit = 1;
-        }else if (Ball.transform.position.z < -8)
+        }else if (Ball.transform.position.z < -8 && (Ball.transform.position.x < 10 && Ball.transform.position.x > -10))
         {
             LastPlayerToHit = 2;
         }
