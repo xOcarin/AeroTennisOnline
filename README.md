@@ -1,4 +1,4 @@
-Normally, fish stay under the water, but occassionally they come to the surface for the ultimate competition:
+Normally, fish stay under the water, but occasionally they come to the surface for the ultimate competition:
 <br>
 
 # Fish Island Tennis
