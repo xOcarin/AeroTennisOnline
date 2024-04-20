@@ -9,4 +9,5 @@ Normally, fish stay under the water, but occassionally they come to the surface 
 
 Fish Island Tennis is an online sports game controlled with mouse **motion controls**!  
 The game has an original soundtrack with the main theme coming to spotify soon!  
+**A fully playable build is availble in this repo, no Unity editor required!**
 Download and play with your friends over steam!
